@@ -22,6 +22,10 @@ public:
 	CPEOPLE getPeople();
 	CVEHICLE* getVehicle();
 	CANIMAL* getAnimal();
+	
+	void updatePosPeople(float elapsedTime);
+	void updatePosVehicle(float elapsedTime);
+	void updatePosAnimal(float elapsedTime);
 };
 
 #endif // !_CGAME_H_

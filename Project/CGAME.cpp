@@ -37,3 +37,36 @@ CANIMAL* CGAME::getAnimal()
 {
 
 }
+void CGAME::updatePosPeople(float elapsedTime)
+{
+	if (Keyboard::isKeyPressed(Keyboard::W))
+		cn.Up(elapsedTime);
+	if (Keyboard::isKeyPressed(Keyboard::S))
+		cn.Down(elapsedTime);
+	if (Keyboard::isKeyPressed(Keyboard::A))
+		cn.Left(elapsedTime);
+	if (Keyboard::isKeyPressed(Keyboard::D))
+		cn.Right(elapsedTime);
+}
+void CGAME::updatePosVehicle(float elapsedTime)
+{
+	for (int i = 0;i < axh.size();i++)
+	{
+		axh[i].Move(elapsedTime);
+	}
+	for (int i = 0;i < axt.size();i++)
+	{
+		axt[i].Move(elapsedTime);
+	}
+}
+void CGAME::updatePosAnimal(float elapsedTime)
+{
+	for (int i = 0;i < ar.size();i++)
+	{
+		ar[i].Move(elapsedTime);
+	}
+	for (int i = 0;i < axt.size();i++)
+	{
+		ac[i].Move(elapsedTime);
+	}
+}
