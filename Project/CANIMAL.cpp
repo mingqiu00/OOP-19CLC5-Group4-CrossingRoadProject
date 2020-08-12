@@ -15,13 +15,13 @@ void CBIRD::Move(float elapsedTime)
 {
 	sf::Vector2f temp;
 	temp.x = this->Pos().x * 100 * elapsedTime;
-	temp.y = this->Pos().y * 100 * elapsedTime;
+	temp.y = this->Pos().y;
 	this->setPos(temp.x, temp.y);
 }
 void CSNAKE::Move(float elapsedTime)
 {
 	sf::Vector2f temp;
 	temp.x = this->Pos().x * 100 * elapsedTime;
-	temp.y = this->Pos().y * 100 * elapsedTime;
+	temp.y = this->Pos().y ;
 	this->setPos(temp.x, temp.y);
 }
