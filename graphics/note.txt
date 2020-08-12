@@ -1,0 +1,1 @@
+Moi nguoi add file anh background va anh object, texture, sprite vao folder nay nhe!
