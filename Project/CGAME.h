@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <vector>
+#include "CANIMAL.h"
+#include "CVEHICLE.h"
 #include <SFML/Graphics.hpp>
 using namespace std;
 
@@ -22,7 +24,8 @@ public:
 	CPEOPLE getPeople();
 	CVEHICLE* getVehicle();
 	CANIMAL* getAnimal();
-	
+	void resetGame();
+	void startGame();
 	void updatePosPeople(float elapsedTime);
 	void updatePosVehicle(float elapsedTime);
 	void updatePosAnimal(float elapsedTime);
