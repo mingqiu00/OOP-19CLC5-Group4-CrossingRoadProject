@@ -5,8 +5,9 @@
 using namespace std;
 class CANIMAL
 {
-	sf::Sprite m_sprite;
+	sf::Sprite m_Sprite;
 public:
+    virtual sf::Sprite getSprite () {return m_Sprite;}
 	virtual sf::Vector2f Pos();
 	virtual void Move(float elapsedTime) = 0;
 	virtual void setPos(float a, float b); 

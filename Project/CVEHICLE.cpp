@@ -1,7 +1,7 @@
 #include "CVEHICLE.h"
 sf::Vector2f CVEHICLE::Pos()
 {
-	sf::Vector2f temp = animal.getPosition();
+	sf::Vector2f temp = m_Sprite.getPosition();
 	return temp;
 }
 void CVEHICLE::setPos(float a, float b)
@@ -9,7 +9,7 @@ void CVEHICLE::setPos(float a, float b)
 	sf::Vector2f position;
 	position.x = a;
 	position.y = b;
-	animal.setPosition(position);
+	m_Sprite.setPosition(position);
 }
 void CCAR::Move(float elapsedTime)
 {
