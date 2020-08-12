@@ -5,7 +5,7 @@
 using namespace std;
 class CVEHICLE
 {
-	sf::Sprite animal;
+	sf::Sprite vehicle;
 public:
 	virtual sf::Vector2f Pos();
 	virtual void Move(float elapsedTime) = 0;
