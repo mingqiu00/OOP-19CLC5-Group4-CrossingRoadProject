@@ -5,7 +5,7 @@
 using namespace std;
 class CANIMAL
 {
-	sf::Sprite animal;
+	sf::Sprite m_sprite;
 public:
 	virtual sf::Vector2f Pos();
 	virtual void Move(float elapsedTime) = 0;
