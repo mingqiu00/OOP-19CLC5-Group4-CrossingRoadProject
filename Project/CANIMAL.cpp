@@ -1,7 +1,7 @@
 #include "CANIMAL.h"
 sf::Vector2f CANIMAL::Pos()
 {
-	sf::Vector2f temp = animal.getPosition();
+	sf::Vector2f temp = m_Sprite.getPosition();
 	return temp;
 }
 void CANIMAL::setPos(float a, float b)
@@ -9,7 +9,7 @@ void CANIMAL::setPos(float a, float b)
 	sf::Vector2f position;
 	position.x = a;
 	position.y = b;
-	animal.setPosition(position);
+	m_Sprite.setPosition(position);
 }
 void CBIRD::Move(float elapsedTime)
 {
