@@ -1,6 +1,7 @@
 #include "CGAME.h"
 int main()
 {
+	TextureHolder holder;
 	CGAME cg;
 	VideoMode vm(960, 540);
 	RenderWindow window(vm, "Cross the road");
@@ -17,6 +18,12 @@ int main()
 		if (Keyboard::isKeyPressed(Keyboard::Escape))
 		{
 			window.close();
+		}
+		Event event;
+		while (window.pollEvent(event))
+		{
+			if (event.type == Event::Closed)
+				window.close();
 		}
 		cg.updatePosPeople(dt.asSeconds());
 		cg.updatePosVehicle(dt.asSeconds());
