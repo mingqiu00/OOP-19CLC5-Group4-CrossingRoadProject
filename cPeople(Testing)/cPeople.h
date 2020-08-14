@@ -1,5 +1,5 @@
-#ifndef cPlayer_h
-#define cPlayer_h
+#ifndef cPeople_h
+#define cPeople_h
 
 #define RIGHTMAP 58
 #define LEFTMAP 2
@@ -9,7 +9,7 @@
 #include <cmath>
 
 
-class cPlayer
+class cPeople
 
 {
 
@@ -27,13 +27,13 @@ private:
 
 public:
 
-	cPlayer(); // set default position
+	cPeople(); // set default position
 
 	cPosition getPos();
 
-	cPlayer(cPosition pos); // set current position when load game
+	cPeople(cPosition pos); // set current position when load game
 
-	~cPlayer();
+	~cPeople();
 
 	void Up();
 
@@ -67,4 +67,4 @@ public:
 
 	void sound();
 };
-#endif // cPlayer
+#endif // cPeople

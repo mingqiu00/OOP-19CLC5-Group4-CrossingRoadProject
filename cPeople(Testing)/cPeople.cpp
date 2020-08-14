@@ -1,7 +1,7 @@
 #include "cPeople.h"
 
 
-cPlayer::cPlayer() : isDead(false) {
+cPeople::cPeople() : isDead(false) {
 	pos.setPos(34, 28);
 	a = new char* [3];
 	emptyPlayer = new char* [3];
@@ -38,7 +38,7 @@ cPlayer::cPlayer() : isDead(false) {
 	}
 }
 
-cPlayer::cPlayer(cPosition pos) : isDead(false), pos(pos) {
+cPeople::cPeople(cPosition pos) : isDead(false), pos(pos) {
 	//pos.setPos(pos.getX(), pos.getY());
 	a = new char* [3];
 	emptyPlayer = new char* [3];
@@ -76,7 +76,7 @@ cPlayer::cPlayer(cPosition pos) : isDead(false), pos(pos) {
 
 }
 
-cPlayer::~cPlayer()
+cPeople::~cPeople()
 {
 	for (int i = 0; i < 3; i++) {
 		delete[] a[i];
@@ -86,71 +86,71 @@ cPlayer::~cPlayer()
 	delete[] emptyPlayer;
 }
 
-void cPlayer::killPlayer() {
+void cPeople::killPlayer() {
 
 	isDead = true;
 
 }
 
-char** cPlayer::shape() {
+char** cPeople::shape() {
 
 	return a;
 
 }
 
-char** cPlayer::emptyShape() {
+char** cPeople::emptyShape() {
 	return emptyPlayer;
 }
 
-cPosition cPlayer::getPos() {
+cPosition cPeople::getPos() {
 	return pos;
 }
 
-int cPlayer::getX() {
+int cPeople::getX() {
 	return pos.getX();
 }
 
-int cPlayer::getY() {
+int cPeople::getY() {
 	return pos.getY();
 }
 
-int cPlayer::getHeight() {
+int cPeople::getHeight() {
 
 	return height;
 
 }
 
-int cPlayer::getWidth() {
+int cPeople::getWidth() {
 
 	return width;
 
 }
 
-void cPlayer::Up() {
+void cPeople::Up() {
 	sound();
 	if (pos.getX() <= 3) return;
 	pos.setPos(pos.getX() - 3, pos.getY());
 }
 
-void cPlayer::Down() {
+void cPeople::Down() {
 	sound();
 	if (pos.getX() + 3 > 34) return;
 	pos.setPos(pos.getX() + 3, pos.getY());
 }
 
-void cPlayer::Left() {
+void cPeople::Left() {
 	sound();
 	if (pos.getY() <= LEFTMAP) return;
 	pos.setPos(pos.getX(), pos.getY() - 1);
 }
 
-void cPlayer::Right() {
+void cPeople::Right() {
 	sound();
 	if (pos.getY() + 2 >= RIGHTMAP) return;
 	pos.setPos(pos.getX(), pos.getY() + 1);
 }
 
-bool cPlayer::checkIsDead() {
+bool cPeople::checkIsDead() {
 	return isDead;
 }
 
