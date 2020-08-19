@@ -2,6 +2,7 @@
 #define _CANIMAL_H
 #include <iostream>
 #include<SFML/Graphics.hpp>
+#include "TextureHolder.h"
 using namespace std;
 class CANIMAL
 {
@@ -18,12 +19,14 @@ class CBIRD : public CANIMAL
 public:
 	void Move(float elapsedTime);
 	void Tell();
+	void spawn(float x, float y);
 };
 class CSNAKE : public CANIMAL
 {
 public:
 	void Move(float elapsedTime);
 	void Tell();
+	void spawn(float x, float y);
 };
 #endif 
 
