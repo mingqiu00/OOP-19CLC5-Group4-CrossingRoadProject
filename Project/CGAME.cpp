@@ -2,37 +2,38 @@
 
 CGAME::CGAME()
 {
-	for (int i = 0, float x = 1.0, y = 1.0; i < 5; ++i, x+=2.0)
-		{
-			CTRUCK truck; CCAR car; CBIRD bird; CSNAKE snake;
-			truck.setPos(x, y);
-			axt.push_back(truck);
-			car.setPos(x + 2.0, y + 2.0);
-			axh.push_back(car);
-			bird.setPos(x + 4.0, y + 4.0);
-			ac.push_back(bird);
-			snake.setPos(x + 6.0, y + 6.0);
-			ar.push_back(snake);
-		}
+	level = 1;
+	for (int i = 0; i < 5; ++i)
+	{
+		CCAR car;
+		car.spawn(180 * i, 70);
+		axh.push_back(car);
+		CBIRD bird;
+		bird.spawn(180 * i, 180);
+		ac.push_back(bird);
+		CTRUCK truck;
+		truck.spawn(180 * i, 300);
+		axt.push_back(truck);
+		CSNAKE snake;
+		snake.spawn(180 * i, 420);
+		ar.push_back(snake);
+	}
 }
 
-void CGAME::drawGame()
+void CGAME::drawGame(sf::RenderWindow &window)
 {
+	window.draw(cn.getSprite());
 	for (int i = 0; i < axt.size(); ++i)
-			window.draw(axt[i]);
-		for (int i = 0; i < axh.size(); ++i)
-			window.draw(axh[i]);
-		for (int i = 0; i < ac.size(); ++i)
-			window.draw(ac[i]);
-		for (int i = 0; i < ar.size(); ++i)
-			window.draw(ar[i]);
-		window.draw(cn);
+		window.draw(axt[i].getSprite());
+	for (int i = 0; i < ac.size(); ++i)
+		window.draw(ac[i].getSprite());
+	for (int i = 0; i < axh.size(); ++i)
+		window.draw(axh[i].getSprite());
+	for (int i = 0; i < ar.size(); ++i)
+		window.draw(ar[i].getSprite());
 }
 
-CGAME::~CGAME() = default;
-
-CPEOPLE CGAME::getPeople()
-{
+CPEOPLE CGAME::getPeople() {
 	return cn;
 }
 
@@ -74,24 +75,36 @@ CANIMAL* CGAME::getAnimal()
 		return closest_snake;
 }
 
+void CGAME::startGame()
+{
+	if (level > MAX_LEVEL) return; //cho nay chua xong, neu pha dao thi in ra man hinh thong bao
+	if (cn.Pos().y < 50)
+	{
+		++level;
+		cn.setPos(400, 530);
+		for (int i = 0; i < axt.size(); ++i)
+			axt[i].setSpeed(level * 50);
+		for (int i = 0; i < ac.size(); ++i)
+			ac[i].setSpeed(level * 50);
+		for (int i = 0; i < axh.size(); ++i)
+			axh[i].setSpeed(level * 50);
+		for (int i = 0; i < ar.size(); ++i)
+			ar[i].setSpeed(level * 50);
+	}
+}
+
 void CGAME::resetGame()
 {
-	axt.clear();
-	axh.clear();
-	ac.clear();
-	ar.clear();
-	cn.setPos(0, 0);
-	for (int i = 0, float x = 1.0, y = 1.0; i < 5; ++i, x += 2.0)
-	{
-		CTRUCK truck; CCAR car; CBIRD bird; CSNAKE snake;
-		truck.setPos(x, y);
-		axt.push_back(truck);
-		car.setPos(x + 2.0, y + 2.0);
-		axh.push_back(car);
-		bird.setPos(x + 4.0, y + 4.0);
-		ac.push_back(bird);
-		snake.setPos(x + 6.0, y + 6.0);
-		ar.push_back(snake);
+	cn.setPos(400, 530);
+	level = 1;
+	for (int i = 0; i < axt.size(); ++i)
+		axt[i].setSpeed(100);
+	for (int i = 0; i < ac.size(); ++i)
+		ac[i].setSpeed(100);
+	for (int i = 0; i < axh.size(); ++i)
+		axh[i].setSpeed(100);
+	for (int i = 0; i < ar.size(); ++i)
+		ar[i].setSpeed(100);
 	}
 }
 

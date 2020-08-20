@@ -29,11 +29,11 @@ void CSNAKE::spawn(float x, float y)
 {
 	m_Sprite = Sprite(TextureHolder::GetTexture(
 			"graphics/snake.png"));
-		m_Sprite.setPosition(x, y);	
+		m_Sprite.setPosition(x, y);
 }
-void spawn(float x, float y)
+void CBIRD::spawn(float x, float y)
 {
 	m_Sprite = Sprite(TextureHolder::GetTexture(
 			"graphics/bird.png"));
-		m_Sprite.setPosition(x, y);	
-}		
+		m_Sprite.setPosition(x, y);
+}
