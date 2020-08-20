@@ -2,6 +2,7 @@
 #define _CVEHICLE_H
 #include <iostream>
 #include<SFML/Graphics.hpp>
+#include "TextureHolder.h"
 using namespace std;
 class CVEHICLE
 {
@@ -15,11 +16,13 @@ public:
 class CCAR : public CVEHICLE
 {
 public:
+	void spawn(float x, float y);
 	void Move(float elapsedTime);
 };
 class CTRUCK : public CVEHICLE
 {
 public:
+	void spawn(float x, float y);
 	void Move(float elapsedTime);
 };
 #endif 

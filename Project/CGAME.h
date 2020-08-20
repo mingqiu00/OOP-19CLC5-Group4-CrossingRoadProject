@@ -26,6 +26,8 @@ public:
 	CANIMAL* getAnimal();
 	void resetGame();
 	void startGame();
+	void loadGame(); 
+	void saveGame();
 	void updatePosPeople(float elapsedTime);
 	void updatePosVehicle(float elapsedTime);
 	void updatePosAnimal(float elapsedTime);

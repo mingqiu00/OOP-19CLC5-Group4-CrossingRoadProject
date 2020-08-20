@@ -25,3 +25,15 @@ void CTRUCK::Move(float elapsedTime)
 	temp.y = this->Pos().y;
 	this->setPos(temp.x, temp.y);
 }
+void CTRUCK::spawn(float x,float y)
+{
+	m_Sprite = Sprite(TextureHolder::GetTexture(
+			"graphics/truck.png"));
+		m_Sprite.setPosition(x, y);	
+}
+void CCAR::spawn(float x,float y)
+{
+	m_Sprite = Sprite(TextureHolder::GetTexture(
+			"graphics/car.png"));
+		m_Sprite.setPosition(x, y);	
+}	

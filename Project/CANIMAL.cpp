@@ -25,3 +25,15 @@ void CSNAKE::Move(float elapsedTime)
 	temp.y = this->Pos().y ;
 	this->setPos(temp.x, temp.y);
 }
+void CSNAKE::spawn(float x, float y)
+{
+	m_Sprite = Sprite(TextureHolder::GetTexture(
+			"graphics/snake.png"));
+		m_Sprite.setPosition(x, y);	
+}
+void spawn(float x, float y)
+{
+	m_Sprite = Sprite(TextureHolder::GetTexture(
+			"graphics/bird.png"));
+		m_Sprite.setPosition(x, y);	
+}		
