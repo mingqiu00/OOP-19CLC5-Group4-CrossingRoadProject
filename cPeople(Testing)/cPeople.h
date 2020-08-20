@@ -63,8 +63,10 @@ public:
 
 	int getY();
 
-	bool crash(cPosition pos, int w, int h);
-
 	void sound();
+
+	// bool crash(cPosition pos, int w, int h);
+	// need completed other class
+
 };
 #endif // cPeople

@@ -1,7 +1,6 @@
 #include "cPeople.h"
 
-
-cPeople::cPeople() : isDead(false) {
+cPeople::cPeople() : isDead(false) { // creating people using ascii
 	pos.setPos(34, 28);
 	a = new char* [3];
 	emptyPlayer = new char* [3];
@@ -38,7 +37,7 @@ cPeople::cPeople() : isDead(false) {
 	}
 }
 
-cPeople::cPeople(cPosition pos) : isDead(false), pos(pos) {
+cPeople::cPeople(cPosition pos) : isDead(false), pos(pos) { // when we move, I rewrite people to pos
 	//pos.setPos(pos.getX(), pos.getY());
 	a = new char* [3];
 	emptyPlayer = new char* [3];
@@ -73,10 +72,9 @@ cPeople::cPeople(cPosition pos) : isDead(false), pos(pos) {
 		else if (i == 3)	a[2][i] = '\\';
 		else a[2][i] = ' ';
 	}
-
 }
 
-cPeople::~cPeople()
+cPeople::~cPeople() // delete People
 {
 	for (int i = 0; i < 3; i++) {
 		delete[] a[i];
@@ -87,15 +85,11 @@ cPeople::~cPeople()
 }
 
 void cPeople::killPlayer() {
-
 	isDead = true;
-
 }
 
-char** cPeople::shape() {
-
+char** cPeople::shape() { // draw people
 	return a;
-
 }
 
 char** cPeople::emptyShape() {
@@ -115,15 +109,11 @@ int cPeople::getY() {
 }
 
 int cPeople::getHeight() {
-
 	return height;
-
 }
 
 int cPeople::getWidth() {
-
 	return width;
-
 }
 
 void cPeople::Up() {
@@ -153,5 +143,3 @@ void cPeople::Right() {
 bool cPeople::checkIsDead() {
 	return isDead;
 }
-
-

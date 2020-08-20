@@ -21,6 +21,8 @@
   <ItemGroup>
     <ClCompile Include="cConsole.cpp" />
     <ClCompile Include="cPeople.cpp" />
+    <ClCompile Include="cPosition.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cConsole.h" />

@@ -25,7 +25,6 @@ int inputKey()
 	return key_none;
 }
 
-
 //-------------------------Screen-------------------------
 void clrscr()
 {
@@ -54,7 +53,6 @@ void ShowConsoleCursor(bool showFlag)
 	SetConsoleCursorInfo(out, &cursorInfo);
 }
 
-
 //screen: goto [x,y]
 void gotoXY(int column, int line)
 {
@@ -65,7 +63,6 @@ void gotoXY(int column, int line)
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
 
-
 //screen: get [x]
 int whereX()
 {
@@ -75,7 +72,6 @@ int whereX()
 	return -1;
 }
 
-
 //screen: get [y]
 int whereY()
 {
@@ -84,7 +80,6 @@ int whereY()
 		return csbi.dwCursorPosition.Y;
 	return -1;
 }
-
 
 void TextColor(int color)
 {
