@@ -1,3 +1,3 @@
-﻿Source.obj : error LNK2001: unresolved external symbol "public: static class sf::RenderStates const sf::RenderStates::Default" (?Default@RenderStates@sf@@2V12@B)
-Source.obj : error LNK2001: unresolved external symbol "public: static class sf::Color const sf::Color::Green" (?Green@Color@sf@@2V12@B)
-E:\An\OneDrive - VNU-HCMUS\Test_SFML_Pc\Project1\Debug\Project1.exe : fatal error LNK1120: 2 unresolved externals
+﻿Entity.obj : error LNK2001: unresolved external symbol "public: static class sf::RenderStates const sf::RenderStates::Default" (?Default@RenderStates@sf@@2V12@B)
+main.obj : error LNK2001: unresolved external symbol "public: static class sf::Color const sf::Color::Black" (?Black@Color@sf@@2V12@B)
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\CPEOPLE with SFML\Debug\Project1.exe : fatal error LNK1120: 2 unresolved externals
