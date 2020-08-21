@@ -1,0 +1,9 @@
+﻿  CPEOPLE.cpp
+  main.cpp
+E:\OOP-19CLC5-Group4-CrossingRoadProject\Project\main.cpp(4,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating code
+  13 of 121 functions (10.7%) were compiled, the rest were copied from previous compilation.
+    9 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  Project1.vcxproj -> E:\An\OneDrive - VNU-HCMUS\Test_SFML_Pc\Project1\Release\Project1.exe
