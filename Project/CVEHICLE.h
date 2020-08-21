@@ -13,7 +13,7 @@ public:
 	virtual sf::Sprite getSprite() { return m_Sprite; }
 	virtual sf::Vector2f Pos();
 	virtual void Move(float elapsedTime);
-	virtual void Stop() = 0;
+	// virtual void Stop() = 0;
 	virtual void setPos(float a, float b);
 	virtual void spawn(float x, float y) = 0;
 };
@@ -21,15 +21,13 @@ class CCAR : public CVEHICLE
 {
 	friend class TRAFFICLIGHT;
 public:
-	void Move(float elapsedTime);
-	void Stop();
+	// void Stop();
 };
 class CTRUCK : public CVEHICLE
 {
 	friend class TRAFFICLIGHT;
 public:
-	void Move(float elapsedTime);
-	void Stop();
+	// void Stop();
 };
 class CTRAFFICLIGHT
 {

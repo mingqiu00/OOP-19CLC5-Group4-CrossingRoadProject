@@ -15,21 +15,19 @@ public:
 	virtual sf::Vector2f Pos();
 	virtual void Move(float elapsedTime);
 	virtual void setPos(float a, float b);
-	virtual void Tell() = 0;
+	// virtual void Tell() = 0;
 	virtual void spawn(float x, float y) = 0;
 };
 class CBIRD : public CANIMAL
 {
 public:
-	void Move(float elapsedTime);
-	void Tell();
+	// void Tell();
 	void spawn(float x, float y);
 };
 class CSNAKE : public CANIMAL
 {
 public:
-	void Move(float elapsedTime);
-	void Tell();
+	// void Tell();
 	void spawn(float x, float y);
 };
 #endif

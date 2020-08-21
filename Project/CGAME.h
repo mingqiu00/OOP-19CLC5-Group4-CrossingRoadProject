@@ -2,6 +2,7 @@
 #define _CGAME_H_
 
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include "CANIMAL.h"
 #include "CVEHICLE.h"
@@ -29,9 +30,9 @@ public:
 	CANIMAL* getAnimal();
 	void resetGame();
 	void startGame();
-	void loadGame();
-	void saveGame();
-	void updatePosPeople(float elapsedTime);
+	// void loadGame();
+	// void saveGame();
+	void updatePosPeople(Event& event,RenderWindow& window);
 	void updatePosVehicle(float elapsedTime);
 	void updatePosAnimal(float elapsedTime);
 };
