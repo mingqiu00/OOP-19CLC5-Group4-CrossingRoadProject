@@ -7,26 +7,29 @@
 #include "CVEHICLE.h"
 #include <SFML/Graphics.hpp>
 using namespace std;
+#define MAX_LEVEL 5
 
 class CGAME
 {
 private:
-	vector<CTRUCK> axt;
-	vector<CCAR> axh;
+	int level = 0;
+	vector <CTRUCK> axt;
+	vector <CCAR> axh;
 	vector <CBIRD> ac;
 	vector <CSNAKE> ar;
 	CPEOPLE cn;
-	float distance(sf::Vector2f a, sf::Vector2f b);
+	float d(sf::Vector2f a, sf::Vector2f b) {
+			return (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
+	}
 public:
 	CGAME();
-	void drawGame();
-	~CGAME();
+	void drawGame(sf::RenderWindow &window);
 	CPEOPLE getPeople();
 	CVEHICLE* getVehicle();
 	CANIMAL* getAnimal();
 	void resetGame();
 	void startGame();
-	void loadGame(); 
+	void loadGame();
 	void saveGame();
 	void updatePosPeople(float elapsedTime);
 	void updatePosVehicle(float elapsedTime);

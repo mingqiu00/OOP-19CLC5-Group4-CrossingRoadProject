@@ -11,29 +11,65 @@ void CVEHICLE::setPos(float a, float b)
 	position.y = b;
 	m_Sprite.setPosition(position);
 }
-void CCAR::Move(float elapsedTime)
+void CVEHICLEL::Move(float elapsedTime)
+{
+	m_Sprite.move(speed * elapsedTime, 0);
+		if (m_Sprite.getPosition().x > 805)
+			setPos(-85, m_Sprite.getPosition().y);
+}
+void CCAR::spawn(float x, float y)
+{
+	m_Sprite = Sprite(TextureHolder::GetTexture(
+		"graphics/car.png"));
+	m_Sprite.setPosition(x, y);
+}
+void CTRUCK::spawn(float x, float y)
+{
+	m_Sprite = Sprite(TextureHolder::GetTexture(
+		"graphics/truck.png"));
+	m_Sprite.setPosition(x, y);
+}
+MyRandom::MyRandom()
+{
+	srand(time(NULL));
+	ran = rand();
+}
+int MyRandom::next()
+{
+	return rand() % RAND_MAX + 0;
+}
+int MyRandom::next(int x)
+{
+	return rand() % x + 0;
+}
+int MyRandom::next(int a, int b)
+{
+	if (a < b)
+		return rand() % (b - a + 1) + a;
+	return rand() % (a - b + 1) + b;
+}
+double MyRandom::nextDouble()
+{
+	return (double)rand() / RAND_MAX;
+}
+bool CTRAFFICLIGHT::getLight()
+{
+	return light;
+}
+void CTRAFFICLIGHT::changeLight()
+{
+	while (1 > 0)
+	{
+		MyRandom r;
+		time = r.nextDouble();
+		if (light == false) light = true;
+		else light = false;
+	}
+}
+void CTRUCK::Stop()
 {
 	sf::Vector2f temp;
-	temp.x = this->Pos().x * 100 * elapsedTime;
+	temp.x = this->Pos().x;
 	temp.y = this->Pos().y;
 	this->setPos(temp.x, temp.y);
 }
-void CTRUCK::Move(float elapsedTime)
-{
-	sf::Vector2f temp;
-	temp.x = this->Pos().x * 100 * elapsedTime;
-	temp.y = this->Pos().y;
-	this->setPos(temp.x, temp.y);
-}
-void CTRUCK::spawn(float x,float y)
-{
-	m_Sprite = Sprite(TextureHolder::GetTexture(
-			"graphics/truck.png"));
-		m_Sprite.setPosition(x, y);	
-}
-void CCAR::spawn(float x,float y)
-{
-	m_Sprite = Sprite(TextureHolder::GetTexture(
-			"graphics/car.png"));
-		m_Sprite.setPosition(x, y);	
-}	
