@@ -6,13 +6,16 @@
 using namespace std;
 class CVEHICLE
 {
+protected:
+	int speed = 100;
 	sf::Sprite m_Sprite;
 public:
 	virtual sf::Sprite getSprite() { return m_Sprite; }
 	virtual sf::Vector2f Pos();
-	virtual void Move(float elapsedTime) = 0;
+	virtual void Move(float elapsedTime);
 	virtual void Stop() = 0;
 	virtual void setPos(float a, float b);
+	virtual void spawn(float x, float y) = 0;
 };
 class CCAR : public CVEHICLE
 {
@@ -31,7 +34,7 @@ public:
 class CTRAFFICLIGHT
 {
 	friend class CCAR;
-	friend class CTRUCK; 
+	friend class CTRUCK;
 	bool light; //true: green, false: red
 	float time;
 public:
@@ -48,5 +51,4 @@ public:
 	int next(int a, int b);
 	double nextDouble();
 };
-#endif 
-
+#endif

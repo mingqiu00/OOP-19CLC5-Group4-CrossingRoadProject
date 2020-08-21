@@ -11,19 +11,11 @@ void CANIMAL::setPos(float a, float b)
 	position.y = b;
 	m_Sprite.setPosition(position);
 }
-void CBIRD::Move(float elapsedTime)
+void CANIMAL::Move(float elapsedTime)
 {
-	sf::Vector2f temp;
-	temp.x = this->Pos().x * 100 * elapsedTime;
-	temp.y = this->Pos().y;
-	this->setPos(temp.x, temp.y);
-}
-void CSNAKE::Move(float elapsedTime)
-{
-	sf::Vector2f temp;
-	temp.x = this->Pos().x * 100 * elapsedTime;
-	temp.y = this->Pos().y ;
-	this->setPos(temp.x, temp.y);
+	m_Sprite.move(-speed * elapsedTime, 0);
+		if (m_Sprite.getPosition().x < -80)
+			setPos(800, m_Sprite.getPosition().y);
 }
 void CSNAKE::spawn(float x, float y)
 {

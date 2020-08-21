@@ -6,13 +6,17 @@
 using namespace std;
 class CANIMAL
 {
+protected:
+	int speed = 100;
 	sf::Sprite m_Sprite;
 public:
-   	virtual sf::Sprite getSprite () {return m_Sprite;}
+  virtual sf::Sprite getSprite () {return m_Sprite;}
+	void setSpeed(int _speed) { this->speed = _speed; }
 	virtual sf::Vector2f Pos();
-	virtual void Move(float elapsedTime) = 0;
-	virtual void setPos(float a, float b); 
+	virtual void Move(float elapsedTime);
+	virtual void setPos(float a, float b);
 	virtual void Tell() = 0;
+	virtual void spawn(float x, float y) = 0;
 };
 class CBIRD : public CANIMAL
 {
@@ -28,5 +32,4 @@ public:
 	void Tell();
 	void spawn(float x, float y);
 };
-#endif 
-
+#endif
