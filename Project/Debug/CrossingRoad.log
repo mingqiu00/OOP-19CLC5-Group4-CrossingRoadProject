@@ -1,0 +1,95 @@
+﻿  CGAME.cpp
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.h(21,12): error C3646: 'cn': unknown override specifier
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.h(21,12): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.h(28,19): error C3646: 'getPeople': unknown override specifier
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.h(28,19): error C2059: syntax error: '('
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.h(28,21): error C2238: unexpected token(s) preceding ';'
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(8,8): error C2259: 'CCAR': cannot instantiate abstract class
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CVEHICLE.h(20): message : see declaration of 'CCAR'
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(8,8): message : due to following members:
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(8,8): message : 'void CVEHICLE::spawn(float,float)': is abstract
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CVEHICLE.h(18): message : see declaration of 'CVEHICLE::spawn'
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(9,17): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(12,18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(14,10): error C2259: 'CTRUCK': cannot instantiate abstract class
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CVEHICLE.h(26): message : see declaration of 'CTRUCK'
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(14,10): message : due to following members:
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(14,10): message : 'void CVEHICLE::spawn(float,float)': is abstract
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CVEHICLE.h(18): message : see declaration of 'CVEHICLE::spawn'
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(15,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(18,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(25,2): error C2065: 'cn': undeclared identifier
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(26,20): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(28,20): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(30,20): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(32,20): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(36,16): error C2039: 'getPeople': is not a member of 'CGAME'
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.h(13): message : see declaration of 'CGAME'
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(36,25): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(36,25): error C2146: syntax error: missing ';' before identifier 'getPeople'
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(36,28): error C2143: syntax error: missing ';' before '{'
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(36,28): error C2447: '{': missing function header (old-style formal list?)
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(42,36): error C2065: 'cn': undeclared identifier
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(42,44): error C2660: 'CGAME::d': function does not take 1 arguments
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.h(22,8): message : see declaration of 'CGAME::d'
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(43,34): error C2065: 'cn': undeclared identifier
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(43,42): error C2660: 'CGAME::d': function does not take 1 arguments
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.h(22,8): message : see declaration of 'CGAME::d'
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(45,21): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(47,24): error C2065: 'cn': undeclared identifier
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(47,7): error C2660: 'CGAME::d': function does not take 1 arguments
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.h(22,8): message : see declaration of 'CGAME::d'
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(50,21): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(52,24): error C2065: 'cn': undeclared identifier
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(52,7): error C2660: 'CGAME::d': function does not take 1 arguments
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.h(22,8): message : see declaration of 'CGAME::d'
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(61,36): error C2065: 'cn': undeclared identifier
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(61,44): error C2660: 'CGAME::d': function does not take 1 arguments
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.h(22,8): message : see declaration of 'CGAME::d'
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(62,32): error C2065: 'cn': undeclared identifier
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(62,40): error C2660: 'CGAME::d': function does not take 1 arguments
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.h(22,8): message : see declaration of 'CGAME::d'
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(64,21): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(66,23): error C2065: 'cn': undeclared identifier
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(66,7): error C2660: 'CGAME::d': function does not take 1 arguments
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.h(22,8): message : see declaration of 'CGAME::d'
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(69,21): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(71,23): error C2065: 'cn': undeclared identifier
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(71,7): error C2660: 'CGAME::d': function does not take 1 arguments
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.h(22,8): message : see declaration of 'CGAME::d'
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(81,6): error C2065: 'cn': undeclared identifier
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(84,3): error C2065: 'cn': undeclared identifier
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(85,21): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(86,11): error C2039: 'setSpeed': is not a member of 'CTRUCK'
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CVEHICLE.h(26): message : see declaration of 'CTRUCK'
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(87,21): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(89,21): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(90,11): error C2039: 'setSpeed': is not a member of 'CCAR'
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CVEHICLE.h(20): message : see declaration of 'CCAR'
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(91,21): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(98,2): error C2065: 'cn': undeclared identifier
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(100,20): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(101,10): error C2039: 'setSpeed': is not a member of 'CTRUCK'
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CVEHICLE.h(26): message : see declaration of 'CTRUCK'
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(102,20): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(104,20): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(105,10): error C2039: 'setSpeed': is not a member of 'CCAR'
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CVEHICLE.h(20): message : see declaration of 'CCAR'
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(106,20): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(109,1): error C2059: syntax error: '}'
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(109,1): error C2143: syntax error: missing ';' before '}'
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(112,1): error C2143: syntax error: missing ';' before '{'
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(112,1): error C2447: '{': missing function header (old-style formal list?)
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(126,19): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(130,19): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(138,19): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(142,19): warning C4018: '<': signed/unsigned mismatch
+  main.cpp
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.h(21,12): error C3646: 'cn': unknown override specifier
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.h(21,12): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.h(28,19): error C3646: 'getPeople': unknown override specifier
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.h(28,19): error C2059: syntax error: '('
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.h(28,21): error C2238: unexpected token(s) preceding ';'
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\main.cpp(28,36): error C2660: 'CGAME::updatePosPeople': function does not take 1 arguments
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.h(35,7): message : see declaration of 'CGAME::updatePosPeople'
+  Generating Code...
