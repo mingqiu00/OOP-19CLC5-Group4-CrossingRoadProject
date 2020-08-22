@@ -1,8 +1,12 @@
+
 #ifndef _CVEHICLE_H
 #define _CVEHICLE_H
 #include <iostream>
 #include<SFML/Graphics.hpp>
+#include <cstdlib>
 #include "TextureHolder.h"
+#include <ctime>
+#include <time.h>
 using namespace std;
 class CVEHICLE
 {
@@ -11,45 +15,54 @@ protected:
 	sf::Sprite m_Sprite;
 public:
 	virtual sf::Sprite getSprite() { return m_Sprite; }
-	void setSpeed(int _speed) { this->speed = _speed; }
 	virtual sf::Vector2f Pos();
-	virtual void Move(float elapsedTime);
-	// virtual void Stop() = 0;
+	void setSpeed(int _speed) { this->speed = _speed; }
+	virtual void Move(float elapsedTime) = 0;
+	virtual void Stop() = 0;
 	virtual void setPos(float a, float b);
-	// virtual void spawn(float x, float y) = 0;
+	virtual void spawn(float x, float y) = 0;
 };
 class CCAR : public CVEHICLE
 {
 	friend class TRAFFICLIGHT;
 public:
-	// void Stop();
-	void spawn(float x,float y);
+	void Move(float elapsedTime);
+	void spawn(float x, float y);
+	void Stop();
 };
 class CTRUCK : public CVEHICLE
 {
 	friend class TRAFFICLIGHT;
 public:
-	// void Stop();
-	void spawn(float x,float y);
+	void Move(float elapsedTime);
+	void spawn(float x, float y);
+	void Stop();
 };
 class CTRAFFICLIGHT
 {
 	friend class CCAR;
 	friend class CTRUCK;
 	bool light; //true: green, false: red
-	float time;
 public:
 	bool getLight();
-	void changeLight();
+	void setRed();
+	void setGreen();
 };
-class MyRandom
+class timer 
 {
-	int ran;
+private:
+	unsigned long begTime;
 public:
-	MyRandom();
-	int next();
-	int next(int x);
-	int next(int a, int b);
-	double nextDouble();
+	void start() {
+		begTime = clock();
+	}
+
+	unsigned long elapsedTime() {
+		return ((unsigned long)clock() - begTime) / CLOCKS_PER_SEC;
+	}
+
+	bool isTimeout(unsigned long seconds) {
+		return seconds >= elapsedTime();
+	}
 };
-#endif
+#endif 
