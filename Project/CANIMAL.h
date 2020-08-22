@@ -16,18 +16,18 @@ public:
 	sf::Vector2f Pos();
 	void setPos(float a, float b);
 	void Move(float elapsedTime);
-	// virtual void Tell() = 0;
+	virtual void Tell() = 0;
 };
 class CBIRD : public CANIMAL
 {
 public:
 	CBIRD();
-	// void Tell();
+	void Tell();
 };
 class CSNAKE : public CANIMAL
 {
 public:
 	CSNAKE();
-	// void Tell();
+	void Tell();
 };
 #endif
