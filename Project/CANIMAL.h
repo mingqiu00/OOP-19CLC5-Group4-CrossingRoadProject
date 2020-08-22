@@ -16,7 +16,7 @@ public:
 	virtual void Move(float elapsedTime);
 	virtual void setPos(float a, float b);
 	// virtual void Tell() = 0;
-	virtual void spawn(float x, float y) = 0;
+	// virtual void spawn(float x, float y) = 0;
 };
 class CBIRD : public CANIMAL
 {

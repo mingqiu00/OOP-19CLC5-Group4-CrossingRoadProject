@@ -25,7 +25,7 @@ int main()
 			if (event.type == Event::Closed)
 				window.close();
 		}
-		cg.updatePosPeople(dt.asSeconds());
+		cg.updatePosPeople(event,window);
 		cg.updatePosVehicle(dt.asSeconds());
 		cg.updatePosAnimal(dt.asSeconds());
 		cg.startGame();
