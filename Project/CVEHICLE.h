@@ -10,27 +10,26 @@ protected:
 	int speed = 100;
 	sf::Sprite m_Sprite;
 public:
-	virtual sf::Sprite getSprite() { return m_Sprite; }
 	void setSpeed(int _speed) { this->speed = _speed; }
-	virtual sf::Vector2f Pos();
-	virtual void Move(float elapsedTime);
+	sf::Sprite getSprite() { return m_Sprite; }
+	sf::Vector2f Pos();
+	void setPos(float a, float b);
+	void Move(float elapsedTime);
 	// virtual void Stop() = 0;
-	virtual void setPos(float a, float b);
-	// virtual void spawn(float x, float y) = 0;
 };
 class CCAR : public CVEHICLE
 {
 	friend class TRAFFICLIGHT;
 public:
 	// void Stop();
-	void spawn(float x,float y);
+	CCAR();
 };
 class CTRUCK : public CVEHICLE
 {
 	friend class TRAFFICLIGHT;
 public:
 	// void Stop();
-	void spawn(float x,float y);
+	CTRUCK();
 };
 class CTRAFFICLIGHT
 {

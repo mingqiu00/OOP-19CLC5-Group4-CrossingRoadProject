@@ -1,5 +1,0 @@
-﻿  cConsole.cpp
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\cPeople(Testing)\cConsole.cpp(104,16): warning C4101: 'lpMode': unreferenced local variable
-  cPeople.cpp
-  Generating Code...
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\cPeople(Testing)\cConsole.cpp(105): error C4700: uninitialized local variable 'hConsoleHandle' used

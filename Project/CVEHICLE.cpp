@@ -4,6 +4,7 @@ sf::Vector2f CVEHICLE::Pos()
 	sf::Vector2f temp = m_Sprite.getPosition();
 	return temp;
 }
+
 void CVEHICLE::setPos(float a, float b)
 {
 	sf::Vector2f position;
@@ -11,24 +12,26 @@ void CVEHICLE::setPos(float a, float b)
 	position.y = b;
 	m_Sprite.setPosition(position);
 }
-void CVEHICLEL::Move(float elapsedTime)
+
+void CVEHICLE::Move(float elapsedTime)
 {
 	m_Sprite.move(speed * elapsedTime, 0);
-		if (m_Sprite.getPosition().x > 805)
-			setPos(-85, m_Sprite.getPosition().y);
+	if (m_Sprite.getPosition().x > 805)
+		setPos(-85, m_Sprite.getPosition().y);
 }
-void CCAR::spawn(float x, float y)
+
+CCAR::CCAR()
 {
 	m_Sprite = Sprite(TextureHolder::GetTexture(
 		"graphics/car.png"));
-	m_Sprite.setPosition(x, y);
 }
-void CTRUCK::spawn(float x, float y)
+
+CTRUCK::CTRUCK()
 {
 	m_Sprite = Sprite(TextureHolder::GetTexture(
 		"graphics/truck.png"));
-	m_Sprite.setPosition(x, y);
 }
+
 MyRandom::MyRandom()
 {
 	srand(time(NULL));

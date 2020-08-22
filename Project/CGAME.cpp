@@ -2,21 +2,30 @@
 
 CGAME::CGAME()
 {
-	level = 1;
+	level = 0;
 	for (int i = 0; i < 5; ++i)
 	{
 		CCAR car;
-		car.spawn(180 * i, 70);
 		axh.push_back(car);
 		CBIRD bird;
-		bird.spawn(180 * i, 180);
 		ac.push_back(bird);
 		CTRUCK truck;
-		truck.spawn(180 * i, 300);
 		axt.push_back(truck);
 		CSNAKE snake;
-		snake.spawn(180 * i, 420);
 		ar.push_back(snake);
+	}
+}
+
+void CGAME::init()
+{
+	level = 1;
+	cn.setPosition(sf::Vector2f(375, 625));
+	for (int i = 0; i < 5; ++i)
+	{
+		axh[i].setPos(180 * i, 70);
+		ac[i].setPos(180 * i, 180);
+		axt[i].setPos(180 * i, 300);
+		ar[i].setPos(180 * i, 420);
 	}
 }
 

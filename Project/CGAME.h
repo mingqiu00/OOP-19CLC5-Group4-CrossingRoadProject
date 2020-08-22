@@ -6,8 +6,9 @@
 #include <vector>
 #include "CANIMAL.h"
 #include "CVEHICLE.h"
-#include <SFML/Graphics.hpp>
 #include "CPEOPLE.h"
+#include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
 using namespace std;
 #define MAX_LEVEL 5
 
@@ -25,6 +26,7 @@ private:
 	}
 public:
 	CGAME();
+	void init();
 	void drawGame(sf::RenderWindow &window);
 	CPEOPLE getPeople();
 	// CVEHICLE* getVehicle();
