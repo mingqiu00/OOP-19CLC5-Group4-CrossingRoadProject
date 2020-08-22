@@ -7,6 +7,7 @@
 #include "CANIMAL.h"
 #include "CVEHICLE.h"
 #include <SFML/Graphics.hpp>
+#include "CPEOPLE.h"
 using namespace std;
 #define MAX_LEVEL 5
 
