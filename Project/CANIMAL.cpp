@@ -31,3 +31,25 @@ CSNAKE::CSNAKE()
 	m_Sprite = Sprite(TextureHolder::GetTexture(
 		"graphics/snake.png"));
 }
+void CSNAKE::Tell()
+{
+	sf::SoundBuffer buffer;
+	if (buffer.loadFromFile("sound/dog.wav"))
+	{
+		sf::Sound sound;
+		sound.setBuffer(buffer);
+		sound.setVolume(100.f);
+		sound.play();
+	}
+}
+void CBIRD::Tell()
+{
+	sf::SoundBuffer buffer;
+	if (buffer.loadFromFile("sound/cat.wav"))
+	{
+		sf::Sound sound;
+		sound.setBuffer(buffer);
+		sound.setVolume(100.f);
+		sound.play();
+	}
+}
