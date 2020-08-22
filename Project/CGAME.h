@@ -26,8 +26,8 @@ public:
 	CGAME();
 	void drawGame(sf::RenderWindow &window);
 	CPEOPLE getPeople();
-	CVEHICLE* getVehicle();
-	CANIMAL* getAnimal();
+	// CVEHICLE* getVehicle();
+	// CANIMAL* getAnimal();
 	void resetGame();
 	void startGame();
 	// void loadGame();

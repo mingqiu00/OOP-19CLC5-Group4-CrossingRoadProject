@@ -95,27 +95,27 @@ int selectMainMenu(int n, char* menu_items[])
 			return selection;
 	}
 }
-void Menu(CGAME cg)
-{
-	char* menu_items[] = { "1. New Game","2. Load Game","3. Settings" };
-	printrect(45, 9, 65, 13);
-	for (int i = 0;i < 3;i++)
-	{
-		if (i == 0) txtColor(12);
-		else txtColor(11);
-		gotoXY(50, i + 10);
-		cout << menu_items[i];
-	}
-	int selection = selectMainMenu(3, menu_items);
-	switch (selection)
-	{
-	case 1:
-		cg.startGame();
-		break;
-	case 2:
-		cg.loadGame();
-		break;
-	//case 3:
-		//cg.settings();
-	}
-}
+// void Menu(CGAME cg)
+// {
+	// char* menu_items[] = { "1. New Game","2. Load Game","3. Settings" };
+	// printrect(45, 9, 65, 13);
+	// for (int i = 0;i < 3;i++)
+	// {
+		// if (i == 0) txtColor(12);
+		// else txtColor(11);
+		// gotoXY(50, i + 10);
+		// cout << menu_items[i];
+	// }
+	// int selection = selectMainMenu(3, menu_items);
+	// switch (selection)
+	// {
+	// case 1:
+		// cg.startGame();
+		// break;
+	// case 2:
+		// cg.loadGame();
+		// break;
+	// //case 3:
+		// //cg.settings();
+	// }
+// }

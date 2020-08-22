@@ -37,65 +37,65 @@ CPEOPLE CGAME::getPeople() {
 	return cn;
 }
 
-CVEHICLE* CGAME::getVehicle()
-{
-	float max_d_car = d(axt[0].Pos(), cn.Pos()),
-			max_d_truck = d(axh[0].Pos(), cn.Pos());
-		CCAR* closest_car = &axh[0]; CTRUCK* closest_truck = &axt[0];
-		for (int i = 1; i < axt.size(); ++i)
-		{
-			if (d(axt[i].Pos(), cn.Pos()) > max_d_truck)
-				 closest_truck = &axt[i];
-		}
-		for (int i = 0; i < axh.size(); ++i)
-		{
-			if (d(axh[i].Pos(), cn.Pos()) > max_d_car)
-				closest_car = &axh[i];
-		}
-		if (max_d_truck > max_d_car) return closest_truck;
-		return closest_car;
-}
+// CVEHICLE* CGAME::getVehicle()
+// {
+	// float max_d_car = d(axt[0].Pos(), cn.Pos()),
+			// max_d_truck = d(axh[0].Pos(), cn.Pos());
+		// CCAR* closest_car = &axh[0]; CTRUCK* closest_truck = &axt[0];
+		// for (int i = 1; i < axt.size(); ++i)
+		// {
+			// if (d(axt[i].Pos(), cn.Pos()) > max_d_truck)
+				 // closest_truck = &axt[i];
+		// }
+		// for (int i = 0; i < axh.size(); ++i)
+		// {
+			// if (d(axh[i].Pos(), cn.Pos()) > max_d_car)
+				// closest_car = &axh[i];
+		// }
+		// if (max_d_truck > max_d_car) return closest_truck;
+		// return closest_car;
+// }
 
-CANIMAL* CGAME::getAnimal()
-{
-	float max_d_bird = d(ac[0].Pos(), cn.Pos()),
-			max_d_snake= d(ar[0].Pos(), cn.Pos());
-		CBIRD* closest_bird = &ac[0]; CSNAKE* closest_snake = &ar[0];
-		for (int i = 1; i < ac.size(); ++i)
-		{
-			if (d(ac[i].Pos(), cn.Pos()) > max_d_bird)
-				 closest_bird = &ac[i];
-		}
-		for (int i = 0; i < ar.size(); ++i)
-		{
-			if (d(ar[i].Pos(), cn.Pos()) > max_d_snake)
-				 closest_snake = &ar[i];
-		}
-		if (max_d_bird > max_d_snake) return closest_bird;
-		return closest_snake;
-}
+// CANIMAL* CGAME::getAnimal()
+// {
+	// float max_d_bird = d(ac[0].Pos(), cn.Pos()),
+			// max_d_snake= d(ar[0].Pos(), cn.Pos());
+		// CBIRD* closest_bird = &ac[0]; CSNAKE* closest_snake = &ar[0];
+		// for (int i = 1; i < ac.size(); ++i)
+		// {
+			// if (d(ac[i].Pos(), cn.Pos()) > max_d_bird)
+				 // closest_bird = &ac[i];
+		// }
+		// for (int i = 0; i < ar.size(); ++i)
+		// {
+			// if (d(ar[i].Pos(), cn.Pos()) > max_d_snake)
+				 // closest_snake = &ar[i];
+		// }
+		// if (max_d_bird > max_d_snake) return closest_bird;
+		// return closest_snake;
+// }
 
 void CGAME::startGame()
 {
 	if (level > MAX_LEVEL) return; //cho nay chua xong, neu pha dao thi in ra man hinh thong bao
-	if (cn.Pos().y < 50)
-	{
-		++level;
-		cn.setPos(400, 530);
-		for (int i = 0; i < axt.size(); ++i)
-			axt[i].setSpeed(level * 50);
-		for (int i = 0; i < ac.size(); ++i)
-			ac[i].setSpeed(level * 50);
-		for (int i = 0; i < axh.size(); ++i)
-			axh[i].setSpeed(level * 50);
-		for (int i = 0; i < ar.size(); ++i)
-			ar[i].setSpeed(level * 50);
-	}
+	// if (cn.Pos().y < 50)
+	// {
+		// ++level;
+		// cn.setPos(400, 530);
+		// for (int i = 0; i < axt.size(); ++i)
+			// axt[i].setSpeed(level * 50);
+		// for (int i = 0; i < ac.size(); ++i)
+			// ac[i].setSpeed(level * 50);
+		// for (int i = 0; i < axh.size(); ++i)
+			// axh[i].setSpeed(level * 50);
+		// for (int i = 0; i < ar.size(); ++i)
+			// ar[i].setSpeed(level * 50);
+	// }
 }
 
 void CGAME::resetGame()
 {
-	cn.setPos(400, 530);
+	// cn.setPos(400, 530);
 	level = 1;
 	for (int i = 0; i < axt.size(); ++i)
 		axt[i].setSpeed(100);
@@ -110,14 +110,6 @@ void CGAME::resetGame()
 
 void CGAME::updatePosPeople(Event& event,RenderWindow& window)
 {
-	if (Keyboard::isKeyPressed(Keyboard::W))
-		cn.Up(elapsedTime);
-	if (Keyboard::isKeyPressed(Keyboard::S))
-		cn.Down(elapsedTime);
-	if (Keyboard::isKeyPressed(Keyboard::A))
-		cn.Left(elapsedTime);
-	if (Keyboard::isKeyPressed(Keyboard::D))
-		cn.Right(elapsedTime);
 	cn.update(event, window);
 }
 
