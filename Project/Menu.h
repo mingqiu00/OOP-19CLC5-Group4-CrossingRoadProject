@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <Windows.h>
 #include <conio.h>
 #include "CGAME.h"
@@ -9,4 +9,6 @@ void setFontSize(int FontSize);
 void printrect(int x1, int y1, int x2, int y2);
 void printMainMenu(int selection, int n, char* menu_items[]);
 int selectMainMenu(int n, char* menu_items[]);
-void Menu(CGAME cg);
+//void Menu(CGAME cg);
+// ông bỏ cái menu.h vs menu.cpp ra nha, đừng xài
+// tui tắt teamview đây oikkk

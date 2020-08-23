@@ -1,39 +1,4 @@
-﻿  CGAME.cpp
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(8,8): error C2259: 'CCAR': cannot instantiate abstract class
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CVEHICLE.h(20): message : see declaration of 'CCAR'
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(8,8): message : due to following members:
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(8,8): message : 'void CVEHICLE::spawn(float,float)': is abstract
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CVEHICLE.h(18): message : see declaration of 'CVEHICLE::spawn'
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(9,17): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(12,18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(14,10): error C2259: 'CTRUCK': cannot instantiate abstract class
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CVEHICLE.h(26): message : see declaration of 'CTRUCK'
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(14,10): message : due to following members:
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(14,10): message : 'void CVEHICLE::spawn(float,float)': is abstract
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CVEHICLE.h(18): message : see declaration of 'CVEHICLE::spawn'
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(15,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(18,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(26,20): warning C4018: '<': signed/unsigned mismatch
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(28,20): warning C4018: '<': signed/unsigned mismatch
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(30,20): warning C4018: '<': signed/unsigned mismatch
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(32,20): warning C4018: '<': signed/unsigned mismatch
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(100,20): warning C4018: '<': signed/unsigned mismatch
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(101,10): error C2039: 'setSpeed': is not a member of 'CTRUCK'
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CVEHICLE.h(26): message : see declaration of 'CTRUCK'
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(102,20): warning C4018: '<': signed/unsigned mismatch
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(104,20): warning C4018: '<': signed/unsigned mismatch
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(105,10): error C2039: 'setSpeed': is not a member of 'CCAR'
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CVEHICLE.h(20): message : see declaration of 'CCAR'
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(106,20): warning C4018: '<': signed/unsigned mismatch
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(109,1): error C2059: syntax error: '}'
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(109,1): error C2143: syntax error: missing ';' before '}'
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(112,1): error C2143: syntax error: missing ';' before '{'
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(112,1): error C2447: '{': missing function header (old-style formal list?)
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(118,19): warning C4018: '<': signed/unsigned mismatch
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(122,19): warning C4018: '<': signed/unsigned mismatch
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(130,19): warning C4018: '<': signed/unsigned mismatch
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(134,19): warning C4018: '<': signed/unsigned mismatch
-  main.cpp
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\main.cpp(28,36): error C2660: 'CGAME::updatePosPeople': function does not take 1 arguments
-E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.h(36,7): message : see declaration of 'CGAME::updatePosPeople'
-  Generating Code...
+﻿CGAME.obj : error LNK2001: unresolved external symbol "public: static class sf::RenderStates const sf::RenderStates::Default" (?Default@RenderStates@sf@@2V12@B)
+Entity.obj : error LNK2001: unresolved external symbol "public: static class sf::RenderStates const sf::RenderStates::Default" (?Default@RenderStates@sf@@2V12@B)
+main.obj : error LNK2001: unresolved external symbol "public: static class sf::RenderStates const sf::RenderStates::Default" (?Default@RenderStates@sf@@2V12@B)
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\Debug\CrossingRoad.exe : fatal error LNK1120: 1 unresolved externals

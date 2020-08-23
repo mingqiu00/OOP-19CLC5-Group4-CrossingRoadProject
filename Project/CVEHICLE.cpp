@@ -11,7 +11,7 @@ void CVEHICLE::setPos(float a, float b)
 	position.y = b;
 	m_Sprite.setPosition(position);
 }
-void CVEHICLEL::Move(float elapsedTime)
+void CVEHICLE::Move(float elapsedTime)
 {
 	m_Sprite.move(speed * elapsedTime, 0);
 		if (m_Sprite.getPosition().x > 805)
@@ -66,10 +66,10 @@ void CTRAFFICLIGHT::changeLight()
 		else light = false;
 	}
 }
-void CTRUCK::Stop()
-{
-	sf::Vector2f temp;
-	temp.x = this->Pos().x;
-	temp.y = this->Pos().y;
-	this->setPos(temp.x, temp.y);
-}
+//void CTRUCK::Stop()
+//{
+//	sf::Vector2f temp;
+//	temp.x = this->Pos().x;
+//	temp.y = this->Pos().y;
+//	this->setPos(temp.x, temp.y);
+//}

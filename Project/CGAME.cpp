@@ -105,7 +105,7 @@ void CGAME::resetGame()
 		axh[i].setSpeed(100);
 	for (int i = 0; i < ar.size(); ++i)
 		ar[i].setSpeed(100);
-	}
+	
 }
 
 void CGAME::updatePosPeople(Event& event,RenderWindow& window)

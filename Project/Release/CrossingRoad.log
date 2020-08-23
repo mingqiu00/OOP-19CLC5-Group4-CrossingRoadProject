@@ -1,0 +1,31 @@
+﻿  CANIMAL.cpp
+  CGAME.cpp
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(9,17): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(12,18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(15,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(18,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(26,20): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(28,20): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(30,20): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(32,20): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(100,20): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(102,20): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(104,20): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(106,20): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(118,19): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(122,19): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(130,19): warning C4018: '<': signed/unsigned mismatch
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CGAME.cpp(134,19): warning C4018: '<': signed/unsigned mismatch
+  CPEOPLE.cpp
+  CVEHICLE.cpp
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CVEHICLE.cpp(34,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\CVEHICLE.cpp(64,22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Entity.cpp
+  main.cpp
+  Movable.cpp
+  TextureHolder.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 485 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  CrossingRoad.vcxproj -> E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project\Release\CrossingRoad.exe
