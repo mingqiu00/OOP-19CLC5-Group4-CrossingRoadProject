@@ -29,47 +29,103 @@ void CTRUCK::spawn(float x, float y)
 		"graphics/truck.png"));
 	m_Sprite.setPosition(x, y);
 }
-MyRandom::MyRandom()
+void CCAR::Move(float elapsedTime)
 {
-	srand(time(NULL));
-	ran = rand();
+	CTRAFFICLIGHT l;
+	while (true)
+	{
+		unsigned long seconds = 5;
+		timer t;
+		t.start();
+		while (true) {
+			if (t.elapsedTime() >= seconds)
+			{
+				timer t1;
+				t1.start();
+				while (true) 
+				{
+					if (t1.elapsedTime() >= seconds)
+					{
+						break;
+					}
+					else
+					{
+						l.setGreen();
+						m_Sprite.move(speed * elapsedTime, 0);
+						if (m_Sprite.getPosition().x > 805)
+							setPos(-85, m_Sprite.getPosition().y);
+					}
+				}
+				break;
+			}
+			else
+			{
+				l.setRed();
+				this->Stop();
+			}
+		}
+	}
 }
-int MyRandom::next()
+void CTRUCK::Move(float elapsedTime)
 {
-	return rand() % RAND_MAX + 0;
-}
-int MyRandom::next(int x)
-{
-	return rand() % x + 0;
-}
-int MyRandom::next(int a, int b)
-{
-	if (a < b)
-		return rand() % (b - a + 1) + a;
-	return rand() % (a - b + 1) + b;
-}
-double MyRandom::nextDouble()
-{
-	return (double)rand() / RAND_MAX;
+	CTRAFFICLIGHT l;
+	while (true)
+	{
+		unsigned long seconds = 5;
+		timer t;
+		t.start();
+		while (true) {
+			if (t.elapsedTime() >= seconds)
+			{
+				timer t1;
+				t1.start();
+				while (true)
+				{
+					if (t1.elapsedTime() >= seconds)
+					{
+						break;
+					}
+					else
+					{
+						l.setGreen();
+						m_Sprite.move(speed * elapsedTime, 0);
+						if (m_Sprite.getPosition().x > 805)
+							setPos(-85, m_Sprite.getPosition().y);
+					}
+				}
+				break;
+			}
+			else
+			{
+				l.setRed();
+				this->Stop();
+			}
+		}
+	}
 }
 bool CTRAFFICLIGHT::getLight()
 {
 	return light;
 }
-void CTRAFFICLIGHT::changeLight()
+void CTRUCK::Stop()
 {
-	while (1 > 0)
-	{
-		MyRandom r;
-		time = r.nextDouble();
-		if (light == false) light = true;
-		else light = false;
-	}
+	sf::Vector2f temp;
+	temp.x = this->Pos().x;
+	temp.y = this->Pos().y;
+	this->setPos(temp.x, temp.y);
 }
-//void CTRUCK::Stop()
-//{
-//	sf::Vector2f temp;
-//	temp.x = this->Pos().x;
-//	temp.y = this->Pos().y;
-//	this->setPos(temp.x, temp.y);
-//}
+void CCAR::Stop()
+{
+	sf::Vector2f temp;
+	temp.x = this->Pos().x;
+	temp.y = this->Pos().y;
+	this->setPos(temp.x, temp.y);
+}
+void CTRAFFICLIGHT::setGreen()
+{
+	light = true;
+}
+void CTRAFFICLIGHT::setRed()
+{
+	light = false;
+}
