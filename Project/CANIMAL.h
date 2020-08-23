@@ -2,6 +2,7 @@
 #define _CANIMAL_H
 #include <iostream>
 #include<SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "TextureHolder.h"
 using namespace std;
 class CANIMAL
@@ -21,13 +22,13 @@ public:
 class CBIRD : public CANIMAL
 {
 public:
-	// void Tell();
+	void Tell();
 	void spawn(float x, float y);
 };
 class CSNAKE : public CANIMAL
 {
 public:
-	// void Tell();
+	void Tell();
 	void spawn(float x, float y);
 };//ua file .cpp cua animal vs vehicle nam o dau v? An oi :vvv
 // ai biet au tui mo? cai file project cua ban ma :<
