@@ -2,21 +2,30 @@
 
 CGAME::CGAME()
 {
-	level = 1;
+	level = 0;
 	for (int i = 0; i < 5; ++i)
 	{
 		CCAR car;
-		car.spawn(180 * i, 70);
 		axh.push_back(car);
 		CBIRD bird;
-		bird.spawn(180 * i, 180);
 		ac.push_back(bird);
 		CTRUCK truck;
-		truck.spawn(180 * i, 300);
 		axt.push_back(truck);
 		CSNAKE snake;
-		snake.spawn(180 * i, 420);
 		ar.push_back(snake);
+	}
+}
+
+void CGAME::init()
+{
+	level = 1;
+	cn.setPosition(sf::Vector2f(375, 625));
+	for (int i = 0; i < 5; ++i)
+	{
+		axh[i].setPos(180 * i, 70);
+		ac[i].setPos(180 * i, 180);
+		axt[i].setPos(180 * i, 300);
+		ar[i].setPos(180 * i, 420);
 	}
 }
 
@@ -95,7 +104,7 @@ void CGAME::startGame()
 
 void CGAME::resetGame()
 {
-	// cn.setPos(400, 530);
+	cn.setPos(400, 530);
 	level = 1;
 	for (int i = 0; i < axt.size(); ++i)
 		axt[i].setSpeed(100);
@@ -136,73 +145,87 @@ void CGAME::updatePosAnimal(float elapsedTime)
 		ac[i].Move(elapsedTime);
 	}
 }
-// void CGAME::loadGame()
-// {
-	// ifstream fin;
-	// string filename;
-	// cout << "Input file's name to load ";
-	// getline(cin, filename);
-	// fin.open(filename);
-	// if (!fin.is_open())
-		// cout << "Can't open file ";
-	// else
-	// {
-		// float x, y;
-		// fin >> x >> y;
-		// cn.setPos(x, y);
-		// for (int i = 0;i < axt.size();i++)
-		// {
-			// fin >> x >> y;
-			// axt[i].setPos(x, y);
-		// }
-		// for (int i = 0;i < axh.size();i++)
-		// {
-			// fin >> x >> y;
-			// axh[i].setPos(x, y);
-		// }
-		// for (int i = 0;i < ac.size();i++)
-		// {
-			// fin >> x >> y;
-			// ac[i].setPos(x, y);
-		// }
-		// for (int i = 0;i < ar.size();i++)
-		// {
-			// fin >> x >> y;
-			// ar[i].setPos(x, y);
-		// }
-		// fin.close();
-	// }
-// }
-// void CGAME::saveGame()
-// {
-	// ofstream fout;
-	// string filename;
-	// cout << "Input file's name to save ";
-	// getline(cin, filename);
-	// fout.open(filename);
-	// if (!fout.is_open())
-		// cout << "Can't create file ";
-	// else
-	// {
-		// fout << cn.getSprite().getPosition().x << " " << cn.getSprite().getPosition().y << endl;
-		// for (int i = 0;i < axt.size();i++)
-		// {
-			// fout << axt[i].getSprite().getPosition().x << " " << axt[i].getSprite().getPosition().y << endl;
-		// }
-		// for (int i = 0;i < axh.size();i++)
-		// {
-			// fout << axh[i].getSprite().getPosition().x << " " << axh[i].getSprite().getPosition().y << endl;
-		// }
-		// for (int i = 0;i < ac.size();i++)
-		// {
-			// fout << ac[i].getSprite().getPosition().x << " " << ac[i].getSprite().getPosition().y << endl;
-		// }
-		// for (int i = 0;i < ar.size();i++)
-		// {
-			// fout << ar[i].getSprite().getPosition().x << " " << ar[i].getSprite().getPosition().y;
-			// if (i != ar.size() - 1)
-				// fout << endl;
-		// }
-		// fout.close();
-	// }
-// }
+void CGAME::loadGame()
+{
+	ifstream fin;
+	string filename;
+	cout << "Input file's name to load ";
+	getline(cin, filename);
+	fin.open(filename);
+	if (!fin.is_open())
+		cout << "Can't open file ";
+	else
+	{
+		fin >> level;
+		float x, y, speed;
+		fin >> x >> y;
+		cn.setPos(x, y);
+		for (int i = 0;i < axt.size();i++)
+		{
+			fin >> speed;
+			axt[i].setSpeed(speed);
+			fin >> x >> y;
+			axt[i].setPos(x, y);
+		}
+		for (int i = 0;i < axh.size();i++)
+		{
+			fin >> speed;
+			axh[i].setSpeed(speed);
+			fin >> x >> y;
+			axh[i].setPos(x, y);
+		}
+		for (int i = 0;i < ac.size();i++)
+		{
+			fin >> speed;
+			ac[i].setSpeed(speed);
+			fin >> x >> y;
+			ac[i].setPos(x, y);
+		}
+		for (int i = 0;i < ar.size();i++)
+		{
+			fin >> speed;
+			ar[i].setSpeed(speed);
+			fin >> x >> y;
+			ar[i].setPos(x, y);
+		}
+		fin.close();
+	}
+}
+void CGAME::saveGame()
+{
+	ofstream fout;
+	string filename;
+	cout << "Input file's name to save ";
+	getline(cin, filename);
+	fout.open(filename);
+	if (!fout.is_open())
+		cout << "Can't create file ";
+	else
+	{
+		fout << level << endl;
+		fout << cn.getBox().getPosition().x << " " << cn.getBox().getPosition().y << endl;
+		for (int i = 0;i < axt.size();i++)
+		{
+			fout << axt[i].getSpeed() << endl;
+			fout << axt[i].getSprite().getPosition().x << " " << axt[i].getSprite().getPosition().y << endl;
+		}
+		for (int i = 0;i < axh.size();i++)
+		{
+			fout << axh[i].getSpeed() << endl;
+			fout << axh[i].getSprite().getPosition().x << " " << axh[i].getSprite().getPosition().y << endl;
+		}
+		for (int i = 0;i < ac.size();i++)
+		{
+			fout << ac[i].getSpeed() << endl;
+			fout << ac[i].getSprite().getPosition().x << " " << ac[i].getSprite().getPosition().y << endl;
+		}
+		for (int i = 0;i < ar.size();i++)
+		{
+			fout << ar[i].getSpeed() << endl;
+			fout << ar[i].getSprite().getPosition().x << " " << ar[i].getSprite().getPosition().y;
+			if (i != ar.size() - 1)
+				fout << endl;
+		}
+		fout.close();
+	}
+}
