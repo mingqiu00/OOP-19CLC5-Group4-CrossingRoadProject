@@ -15,6 +15,7 @@ protected:
 	sf::Sprite m_Sprite;
 public:
 	void setSpeed(int _speed) { this->speed = _speed; }
+	int getSpeed() { return speed; }
 	sf::Sprite getSprite() { return m_Sprite; }
 	sf::Vector2f Pos();
 	void setPos(float a, float b);
