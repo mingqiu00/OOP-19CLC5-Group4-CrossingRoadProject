@@ -3,6 +3,8 @@
 #include <iostream>
 #include<SFML/Graphics.hpp>
 #include "TextureHolder.h"
+#include <ctime>
+#include <time.h>
 using namespace std;
 class CVEHICLE
 {
@@ -37,19 +39,26 @@ class CTRAFFICLIGHT
 	friend class CCAR;
 	friend class CTRUCK;
 	bool light; //true: green, false: red
-	float time;
 public:
 	bool getLight();
-	void changeLight();
+	void setRed();
+	void setGreen();
 };
-class MyRandom
+class timer 
 {
-	int ran;
+private:
+	unsigned long begTime;
 public:
-	MyRandom();
-	int next();
-	int next(int x);
-	int next(int a, int b);
-	double nextDouble();
+	void start() {
+		begTime = clock();
+	}
+
+	unsigned long elapsedTime() {
+		return ((unsigned long)clock() - begTime) / CLOCKS_PER_SEC;
+	}
+
+	bool isTimeout(unsigned long seconds) {
+		return seconds >= elapsedTime();
+	}
 };
 #endif
