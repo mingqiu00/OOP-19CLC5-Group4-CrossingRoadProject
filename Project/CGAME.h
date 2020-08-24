@@ -31,8 +31,8 @@ public:
 	// CANIMAL* getAnimal();
 	void resetGame();
 	void startGame();
-	// void loadGame();
-	// void saveGame();
+	bool loadGame();
+	void saveGame();
 	void updatePosPeople(Event& event,RenderWindow& window);
 	void updatePosVehicle(float elapsedTime);
 	void updatePosAnimal(float elapsedTime);

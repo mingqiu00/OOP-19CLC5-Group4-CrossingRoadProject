@@ -14,6 +14,7 @@ protected:
 public:
 	virtual sf::Sprite getSprite() { return m_Sprite; }
 	void setSpeed(int _speed) { this->speed = _speed; }
+	int getSpeed() { return speed; }
 	virtual sf::Vector2f Pos();
 	virtual void Move(float elapsedTime);
 	// virtual void Stop() = 0;
