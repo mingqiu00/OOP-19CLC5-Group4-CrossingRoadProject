@@ -15,6 +15,9 @@ class CGAME
 {
 private:
 	int level = 0;
+	Font font;
+	Text Level;
+	Sprite m_Heart;
 	vector <CTRUCK> axt;
 	vector <CCAR> axh;
 	vector <CBIRD> ac;
@@ -26,6 +29,8 @@ private:
 public:
 	CGAME();
 	void drawGame(sf::RenderWindow &window);
+	void display(RenderWindow& w);
+	void init();
 	CPEOPLE getPeople();
 	// CVEHICLE* getVehicle();
 	// CANIMAL* getAnimal();

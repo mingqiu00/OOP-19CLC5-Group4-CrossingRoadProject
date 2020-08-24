@@ -2,27 +2,58 @@
 
 CGAME::CGAME()
 {
+	if (!font.loadFromFile("font/arial.ttf"))
+	{
+		cout << "Can't load font";
+	}
+	m_Heart = Sprite(TextureHolder::GetTexture(
+		"graphics/heart.png"));
 	level = 1;
 	for (int i = 0; i < 5; ++i)
 	{
 		CCAR car;
-		car.spawn(180 * i, 70);
 		axh.push_back(car);
 		CBIRD bird;
-		bird.spawn(180 * i, 180);
 		ac.push_back(bird);
 		CTRUCK truck;
-		truck.spawn(180 * i, 300);
 		axt.push_back(truck);
 		CSNAKE snake;
-		snake.spawn(180 * i, 420);
 		ar.push_back(snake);
 	}
 }
-
+void CGAME::init()
+{
+	level = 1;
+	cn.setPosition(sf::Vector2f(375, 500));
+	for (int i = 0; i < 5; ++i)
+	{
+		axh[i].setPos(180 * i, 70);
+		ac[i].setPos(180 * i, 180);
+		axt[i].setPos(180 * i, 300);
+		ar[i].setPos(180 * i, 420);
+	}
+}
+void CGAME::display(RenderWindow& w)
+{
+	Level.setFont(font);
+	string num = to_string(level);
+	string lv = "Level: " + num;
+	Level.setColor(Color::Black);
+	Level.setString(lv);
+	Level.setPosition(Vector2f(50, 550));
+	w.draw(Level);
+	// Lives remaining
+	int live = cn.getLivesLeft();
+	for (int i = 1;i <= live;i++)
+	{
+		m_Heart.setPosition(570 + 40 * i, 550);
+		w.draw(m_Heart);
+	}		
+}
 void CGAME::drawGame(sf::RenderWindow &window)
 {
 	cn.draw(window);
+	display(window);
 	for (int i = 0; i < axt.size(); ++i)
 		window.draw(axt[i].getSprite());
 	for (int i = 0; i < ac.size(); ++i)

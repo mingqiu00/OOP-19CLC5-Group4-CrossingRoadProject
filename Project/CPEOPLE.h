@@ -14,6 +14,7 @@ public:
 	// Returns the lives the player has remaining
 	int getLivesLeft();
 
+	void setLives(int l) { m_iLivesLeft = l; }
 	// Returns the number of moves the player has took
 	int getMovesTaken();
 
