@@ -31,23 +31,21 @@ void CBIRD::spawn(float x, float y)
 }
 void CSNAKE::Tell()
 {
-	sf::SoundBuffer buffer;
 	if (buffer.loadFromFile("sound/dog.wav"))
 	{
-		sf::Sound sound;
 		sound.setBuffer(buffer);
 		sound.setVolume(100.f);
 		sound.play();
+		sf::sleep(sf::seconds(2.0));
 	}
 }
 void CBIRD::Tell()
 {
-	sf::SoundBuffer buffer;
 	if (buffer.loadFromFile("sound/cat.wav"))
 	{
-		sf::Sound sound;
 		sound.setBuffer(buffer);
 		sound.setVolume(100.f);
 		sound.play();
+		sf::sleep(sf::seconds(2.0));
 	}
 }
