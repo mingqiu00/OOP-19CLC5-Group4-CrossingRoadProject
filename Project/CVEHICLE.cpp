@@ -129,3 +129,13 @@ void CTRAFFICLIGHT::setRed()
 {
 	light = false;
 }
+void CVEHICLE::CrashSound()
+{
+	if (buffer.loadFromFile("sound/crash.wav"))
+	{
+		sound.setBuffer(buffer);
+		sound.setVolume(100.f);
+		sound.play();
+		sf::sleep(sf::seconds(2.0));
+	}
+}
