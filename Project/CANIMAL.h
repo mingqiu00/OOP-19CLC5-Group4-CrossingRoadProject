@@ -8,6 +8,8 @@ using namespace std;
 class CANIMAL
 {
 protected:
+	sf::Sound sound;
+	sf::SoundBuffer buffer;
 	int speed = 100;
 	sf::Sprite m_Sprite;
 public:
