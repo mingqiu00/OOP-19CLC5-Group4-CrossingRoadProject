@@ -1,131 +1,31 @@
 #include "CVEHICLE.h"
-sf::Vector2f CVEHICLE::Pos()
+
+void CVEHICLE::Stop()
 {
-	sf::Vector2f temp = m_Sprite.getPosition();
-	return temp;
+	sf::Vector2f temp;
+	temp.x = this->Pos().x;
+	temp.y = this->Pos().y;
+	this->setPos(temp.x, temp.y);
 }
-void CVEHICLE::setPos(float a, float b)
+
+void CVEHICLE::Move(float elapsedTime, CTRAFFICLIGHT& light)
 {
-	sf::Vector2f position;
-	position.x = a;
-	position.y = b;
-	m_Sprite.setPosition(position);
-}
-void CVEHICLE::Move(float elapsedTime)
-{
-	m_Sprite.move(speed * elapsedTime, 0);
+	if (light.getLight())
+	{
+		m_Sprite.move(speed * elapsedTime, 0);
 		if (m_Sprite.getPosition().x > 805)
 			setPos(-85, m_Sprite.getPosition().y);
-}
-void CCAR::spawn(float x, float y)
-{
-	m_Sprite = Sprite(TextureHolder::GetTexture(
-		"graphics/car.png"));
-	m_Sprite.setPosition(x, y);
-}
-void CTRUCK::spawn(float x, float y)
-{
-	m_Sprite = Sprite(TextureHolder::GetTexture(
-		"graphics/truck.png"));
-	m_Sprite.setPosition(x, y);
-}
-void CCAR::Move(float elapsedTime)
-{
-	CTRAFFICLIGHT l;
-	while (true)
-	{
-		unsigned long seconds = 5;
-		timer t;
-		t.start();
-		while (true) {
-			if (t.elapsedTime() >= seconds)
-			{
-				timer t1;
-				t1.start();
-				while (true) 
-				{
-					if (t1.elapsedTime() >= seconds)
-					{
-						break;
-					}
-					else
-					{
-						l.setGreen();
-						m_Sprite.move(speed * elapsedTime, 0);
-						if (m_Sprite.getPosition().x > 805)
-							setPos(-85, m_Sprite.getPosition().y);
-					}
-				}
-				break;
-			}
-			else
-			{
-				l.setRed();
-				this->Stop();
-			}
-		}
 	}
+	if (!light.getLight()) this->Stop();
 }
-void CTRUCK::Move(float elapsedTime)
+
+void CVEHICLE::CrashSound()
 {
-	CTRAFFICLIGHT l;
-	while (true)
+	if (buffer.loadFromFile("sound/crash.wav"))
 	{
-		unsigned long seconds = 5;
-		timer t;
-		t.start();
-		while (true) {
-			if (t.elapsedTime() >= seconds)
-			{
-				timer t1;
-				t1.start();
-				while (true)
-				{
-					if (t1.elapsedTime() >= seconds)
-					{
-						break;
-					}
-					else
-					{
-						l.setGreen();
-						m_Sprite.move(speed * elapsedTime, 0);
-						if (m_Sprite.getPosition().x > 805)
-							setPos(-85, m_Sprite.getPosition().y);
-					}
-				}
-				break;
-			}
-			else
-			{
-				l.setRed();
-				this->Stop();
-			}
-		}
+		sound.setBuffer(buffer);
+		sound.setVolume(100.f);
+		sound.play();
+		sf::sleep(sf::seconds(2.0));
 	}
-}
-bool CTRAFFICLIGHT::getLight()
-{
-	return light;
-}
-void CTRUCK::Stop()
-{
-	sf::Vector2f temp;
-	temp.x = this->Pos().x;
-	temp.y = this->Pos().y;
-	this->setPos(temp.x, temp.y);
-}
-void CCAR::Stop()
-{
-	sf::Vector2f temp;
-	temp.x = this->Pos().x;
-	temp.y = this->Pos().y;
-	this->setPos(temp.x, temp.y);
-}
-void CTRAFFICLIGHT::setGreen()
-{
-	light = true;
-}
-void CTRAFFICLIGHT::setRed()
-{
-	light = false;
 }

@@ -1,65 +1,76 @@
 #ifndef _CVEHICLE_H
 #define _CVEHICLE_H
 #include <iostream>
-#include<SFML/Graphics.hpp>
+#include <SFML/Graphics.hpp>
 #include "TextureHolder.h"
 #include <ctime>
 #include <time.h>
-using namespace std;
+
+class CTRAFFICLIGHT
+{
+private:
+	sf::Sprite m_Sprite;
+	friend class CCAR;
+	friend class CTRUCK;
+	bool light = true; //true: green, false: red
+public:
+	CTRAFFICLIGHT()	{
+		m_Sprite = Sprite(TextureHolder::GetTexture(
+			"graphics/green.png"));
+	}
+	sf::Sprite getSprite() { return m_Sprite; }
+	bool getLight() { return light; }
+	void setPos(float a, float b) { m_Sprite.setPosition(a, b); }
+	void setRed(float a, float b) {
+		m_Sprite = Sprite(TextureHolder::GetTexture(
+			"graphics/red.png"));
+		setPos(a, b);
+		light = false;
+	}
+	void setGreen(float a, float b) {
+		m_Sprite = Sprite(TextureHolder::GetTexture(
+			"graphics/green.png"));
+		setPos(a, b);
+		light = true;
+	}
+};
+
 class CVEHICLE
 {
 protected:
+	sf::Sound sound;
+	sf::SoundBuffer buffer;
 	int speed = 100;
 	sf::Sprite m_Sprite;
 public:
-	virtual sf::Sprite getSprite() { return m_Sprite; }
 	void setSpeed(int _speed) { this->speed = _speed; }
 	int getSpeed() { return speed; }
-	virtual sf::Vector2f Pos();
-	virtual void Move(float elapsedTime);
-	// virtual void Stop() = 0;
-	virtual void setPos(float a, float b);
-	// virtual void spawn(float x, float y) = 0;
+	sf::Sprite getSprite() { return m_Sprite; }
+	sf::Vector2f Pos() { return m_Sprite.getPosition(); }
+	void setPos(float a, float b) { m_Sprite.setPosition(a, b); }
+	void Stop();
+	void Move(float elapsedTime, CTRAFFICLIGHT& light);
+	void CrashSound ();
 };
+
 class CCAR : public CVEHICLE
 {
 	friend class TRAFFICLIGHT;
 public:
-	// void Stop();
-	void spawn(float x,float y);
+	CCAR() {
+		m_Sprite = Sprite(TextureHolder::GetTexture(
+  	"graphics/car.png"));
+	}
 };
+
 class CTRUCK : public CVEHICLE
 {
 	friend class TRAFFICLIGHT;
 public:
-	// void Stop();
-	void spawn(float x,float y);
-};
-class CTRAFFICLIGHT
-{
-	friend class CCAR;
-	friend class CTRUCK;
-	bool light; //true: green, false: red
-public:
-	bool getLight();
-	void setRed();
-	void setGreen();
-};
-class timer 
-{
-private:
-	unsigned long begTime;
-public:
-	void start() {
-		begTime = clock();
+	CTRUCK() {
+		m_Sprite = Sprite(TextureHolder::GetTexture(
+		"graphics/truck.png"));
 	}
+};
 
-	unsigned long elapsedTime() {
-		return ((unsigned long)clock() - begTime) / CLOCKS_PER_SEC;
-	}
-
-	bool isTimeout(unsigned long seconds) {
-		return seconds >= elapsedTime();
-	}
-};
 #endif
