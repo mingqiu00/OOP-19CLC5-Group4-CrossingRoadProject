@@ -22,6 +22,7 @@ public:
 	// virtual void Stop() = 0;
 	virtual void setPos(float a, float b);
 	// virtual void spawn(float x, float y) = 0;
+	void CrashSound ();
 };
 class CCAR : public CVEHICLE
 {
