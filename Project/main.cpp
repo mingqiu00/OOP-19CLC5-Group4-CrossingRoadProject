@@ -10,10 +10,19 @@ int main()
 	Sprite spriteBackground;
 	spriteBackground.setTexture(textureBackground);
 	spriteBackground.setPosition(0, 0);
-	Clock clock;
+	sf::Clock clock;
+	sf::Time dt;
+	sf::Time elapsed;
 	while (window.isOpen())
 	{
-		Time dt = clock.restart();
+		elapsed += clock.getElapsedTime();
+		dt = clock.getElapsedTime();
+		clock.restart();
+		if (elapsed.asSeconds() >= 4)
+		{
+			cg.changeTrafficLight();
+			elapsed = seconds(0);
+		}
 		// Press Esc to close
 		if (Keyboard::isKeyPressed(Keyboard::Escape))
 		{
@@ -25,6 +34,7 @@ int main()
 			if (event.type == Event::Closed)
 				window.close();
 		}
+		cg.init();
 		cg.updatePosPeople(event,window);
 		cg.updatePosVehicle(dt.asSeconds());
 		cg.updatePosAnimal(dt.asSeconds());

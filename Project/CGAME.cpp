@@ -12,26 +12,32 @@ CGAME::CGAME()
 	for (int i = 0; i < 5; ++i)
 	{
 		CCAR car;
+		car.spawn(180 * i, 70);
 		axh.push_back(car);
 		CBIRD bird;
+		bird.spawn(180 * i, 180);
 		ac.push_back(bird);
 		CTRUCK truck;
+		truck.spawn(180 * i, 300);
 		axt.push_back(truck);
 		CSNAKE snake;
+		snake.spawn(180 * i, 420);
 		ar.push_back(snake);
 	}
+	cd[0].setPos(770, 65);	//for car 
+	cd[1].setPos(770, 280);	//for truck
 }
-void CGAME::init()
+
+void CGAME::changeTrafficLight()
 {
-	level = 1;
-	cn.setPosition(sf::Vector2f(375, 500));
-	for (int i = 0; i < 5; ++i)
-	{
-		axh[i].setPos(180 * i, 70);
-		ac[i].setPos(180 * i, 180);
-		axt[i].setPos(180 * i, 300);
-		ar[i].setPos(180 * i, 420);
-	}
+	if (cd[0].getLight())
+		cd[0].setRed(770, 65);
+	else
+		cd[0].setGreen(770, 65);
+	if (cd[1].getLight())
+		cd[1].setRed(770, 280);
+	else
+		cd[1].setGreen(770, 280);
 }
 void CGAME::display(RenderWindow& w)
 {
@@ -48,24 +54,22 @@ void CGAME::display(RenderWindow& w)
 	{
 		m_Heart.setPosition(570 + 40 * i, 550);
 		w.draw(m_Heart);
-	}		
+	}
 }
+
 void CGAME::drawGame(sf::RenderWindow &window)
 {
 	cn.draw(window);
 	display(window);
-	for (int i = 0; i < axt.size(); ++i)
+	for (int i = 0; i < 5; ++i)
+	{
 		window.draw(axt[i].getSprite());
-	for (int i = 0; i < ac.size(); ++i)
 		window.draw(ac[i].getSprite());
-	for (int i = 0; i < axh.size(); ++i)
 		window.draw(axh[i].getSprite());
-	for (int i = 0; i < ar.size(); ++i)
 		window.draw(ar[i].getSprite());
-}
-
-CPEOPLE CGAME::getPeople() {
-	return cn;
+	}
+	window.draw(cd[0].getSprite());
+	window.draw(cd[1].getSprite());
 }
 
 // CVEHICLE* CGAME::getVehicle()
@@ -128,15 +132,15 @@ void CGAME::resetGame()
 {
 	cn.setPos(400, 530);
 	level = 1;
-	for (int i = 0; i < axt.size(); ++i)
+	for (int i = 0; i < 5; ++i)
+	{
 		axt[i].setSpeed(100);
-	for (int i = 0; i < ac.size(); ++i)
 		ac[i].setSpeed(100);
-	for (int i = 0; i < axh.size(); ++i)
 		axh[i].setSpeed(100);
-	for (int i = 0; i < ar.size(); ++i)
 		ar[i].setSpeed(100);
-	
+	}
+	cd[0].setPos(770, 65);	//for car
+	cd[1].setPos(770, 280);	//for truck
 }
 
 void CGAME::updatePosPeople(Event& event,RenderWindow& window)
@@ -146,27 +150,22 @@ void CGAME::updatePosPeople(Event& event,RenderWindow& window)
 
 void CGAME::updatePosVehicle(float elapsedTime)
 {
-	for (int i = 0;i < axh.size();i++)
+	for (int i = 0; i < 5; i++)
 	{
-		axh[i].Move(elapsedTime);
-	}
-	for (int i = 0;i < axt.size();i++)
-	{
-		axt[i].Move(elapsedTime);
+		axh[i].Move(elapsedTime, cd[0]);
+		axt[i].Move(elapsedTime, cd[1]);
 	}
 }
 
 void CGAME::updatePosAnimal(float elapsedTime)
 {
-	for (int i = 0;i < ar.size();i++)
+	for (int i = 0; i < 5; i++)
 	{
 		ar[i].Move(elapsedTime);
-	}
-	for (int i = 0;i < axt.size();i++)
-	{
 		ac[i].Move(elapsedTime);
 	}
 }
+
 bool CGAME::loadGame()
 {
 	ifstream fin;
@@ -220,6 +219,7 @@ bool CGAME::loadGame()
 		return true;
 	}
 }
+
 void CGAME::saveGame()
 {
 	ofstream fout;
