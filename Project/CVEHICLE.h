@@ -39,8 +39,8 @@ public:
 class CVEHICLE
 {
 protected:
-	sf::Sound sound;
-	sf::SoundBuffer buffer;
+	//sf::Sound sound;
+	//sf::SoundBuffer buffer;
 	int speed = 100;
 	sf::Sprite m_Sprite;
 public:
@@ -51,7 +51,8 @@ public:
 	void setPos(float a, float b) { m_Sprite.setPosition(a, b); }
 	void Stop();
 	void Move(float elapsedTime, CTRAFFICLIGHT& light);
-	void CrashSound ();
+	bool checkCollision(sf::FloatRect);
+	//void CrashSound ();
 };
 
 class CCAR : public CVEHICLE

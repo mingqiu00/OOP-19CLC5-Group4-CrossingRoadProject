@@ -18,14 +18,18 @@ void CVEHICLE::Move(float elapsedTime, CTRAFFICLIGHT& light)
 	}
 	if (!light.getLight()) this->Stop();
 }
-
-void CVEHICLE::CrashSound()
-{
-	if (buffer.loadFromFile("sound/crash.wav"))
-	{
-		sound.setBuffer(buffer);
-		sound.setVolume(100.f);
-		sound.play();
-		sf::sleep(sf::seconds(2.0));
-	}
+bool CVEHICLE::checkCollision(sf::FloatRect other) {
+	if (m_Sprite.getGlobalBounds().intersects(other))
+		return true;
+	else return false;
 }
+//void CVEHICLE::CrashSound()
+//{
+//	if (buffer.loadFromFile("sound/crash.wav"))
+//	{
+//		sound.setBuffer(buffer);
+//		sound.setVolume(100.f);
+//		sound.play();
+//		sf::sleep(sf::seconds(2.0));
+//	}
+//}

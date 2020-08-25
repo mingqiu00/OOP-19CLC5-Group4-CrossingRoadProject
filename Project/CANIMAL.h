@@ -8,8 +8,8 @@
 class CANIMAL
 {
 protected:
-	sf::Sound sound;
-	sf::SoundBuffer buffer;
+	//sf::Sound sound;
+	//sf::SoundBuffer buffer;
 	int speed = 100;
 	sf::Sprite m_Sprite;
 public:
@@ -19,7 +19,8 @@ public:
 	sf::Vector2f Pos() { return m_Sprite.getPosition(); }
 	void setPos(float a, float b) { m_Sprite.setPosition(a, b); }
 	void Move(float elapsedTime);
-	virtual void Tell() = 0;
+	bool checkCollision(sf::FloatRect other);
+	//virtual void Tell() = 0;
 };
 
 class CBIRD : public CANIMAL
@@ -31,7 +32,7 @@ public:
 			"graphics/bird.png"));
 		m_Sprite.setPosition(x, y);
 	}
-	void Tell();
+	//void Tell();
 };
 
 class CSNAKE : public CANIMAL
@@ -43,6 +44,6 @@ public:
 			"graphics/snake.png"));
 		m_Sprite.setPosition(x, y);
 	}
- 	void Tell();
+ 	//void Tell();
 };
 #endif

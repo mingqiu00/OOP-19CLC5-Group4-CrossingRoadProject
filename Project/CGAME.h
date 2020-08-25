@@ -42,6 +42,10 @@ public:
 	void updatePosPeople(Event& event,RenderWindow& window);
 	void updatePosVehicle(float elapsedTime);
 	void updatePosAnimal(float elapsedTime);
+	void setPosPeople() {
+		cn.setPosition(sf::Vector2f(375, 575));
+
+	}
 };
 
 #endif // !_CGAME_H_

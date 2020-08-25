@@ -26,22 +26,18 @@ void CPEOPLE::loseLife() { m_iLivesLeft--; }
 void CPEOPLE::moveLeft()
 {
 	setPosition(getPosition() + sf::Vector2f(-50, 0));
-	m_rectBox.setRotation(270);
 }
 void CPEOPLE::moveRight()
 {
 	setPosition(getPosition() + sf::Vector2f(50, 0));
-	m_rectBox.setRotation(90);
 }
 void CPEOPLE::moveUp()
 {
 	setPosition(getPosition() + sf::Vector2f(0, -50));
-	m_rectBox.setRotation(0);
 }
 void CPEOPLE::moveDown()
 {
 	setPosition(getPosition() + sf::Vector2f(0, 50));
-	m_rectBox.setRotation(180);
 }
 
 // Check if there is a key input corisponding to a movement (arrow keys)

@@ -13,6 +13,7 @@ int main()
 	sf::Clock clock;
 	sf::Time dt;
 	sf::Time elapsed;
+	cg.setPosPeople();
 	while (window.isOpen())
 	{
 		elapsed += clock.getElapsedTime();
@@ -34,7 +35,6 @@ int main()
 			if (event.type == Event::Closed)
 				window.close();
 		}
-		cg.init();
 		cg.updatePosPeople(event,window);
 		cg.updatePosVehicle(dt.asSeconds());
 		cg.updatePosAnimal(dt.asSeconds());

@@ -44,7 +44,7 @@ void CGAME::display(RenderWindow& w)
 	Level.setFont(font);
 	string num = to_string(level);
 	string lv = "Level: " + num;
-	Level.setColor(Color::Black);
+	//Level.setColor(Color::Black);
 	Level.setString(lv);
 	Level.setPosition(Vector2f(50, 550));
 	w.draw(Level);
@@ -130,7 +130,7 @@ void CGAME::startGame()
 
 void CGAME::resetGame()
 {
-	cn.setPos(400, 530);
+	//cn.setPos(400, 530);
 	level = 1;
 	for (int i = 0; i < 5; ++i)
 	{
@@ -146,6 +146,7 @@ void CGAME::resetGame()
 void CGAME::updatePosPeople(Event& event,RenderWindow& window)
 {
 	cn.update(event, window);
+	cn.draw(window);
 }
 
 void CGAME::updatePosVehicle(float elapsedTime)
@@ -153,7 +154,11 @@ void CGAME::updatePosVehicle(float elapsedTime)
 	for (int i = 0; i < 5; i++)
 	{
 		axh[i].Move(elapsedTime, cd[0]);
+		if (axh[i].checkCollision(cn.getBounds()))
+			cout << "axh Collision." << endl;
 		axt[i].Move(elapsedTime, cd[1]);
+		if (axt[i].checkCollision(cn.getBounds()))
+			cout << "axt Collision." << endl;
 	}
 }
 
@@ -162,7 +167,11 @@ void CGAME::updatePosAnimal(float elapsedTime)
 	for (int i = 0; i < 5; i++)
 	{
 		ar[i].Move(elapsedTime);
+		if (ar[i].checkCollision(cn.getBounds()))
+			cout << "ar Collision." << endl;
 		ac[i].Move(elapsedTime);
+		if (ac[i].checkCollision(cn.getBounds()))
+			cout << "ac Collision." << endl;
 	}
 }
 
@@ -186,7 +195,7 @@ bool CGAME::loadGame()
 		cn.setLives(live);
 		float x, y, speed;
 		fin >> x >> y;
-		cn.setPos(x, y);
+		//cn.setPos(x, y);
 		for (int i = 0;i < axt.size();i++)
 		{
 			fin >> speed;
@@ -233,7 +242,7 @@ void CGAME::saveGame()
 	{
 		fout << level << endl;
 		fout << cn.getLivesLeft() << endl;
-		fout << cn.getBox().getPosition().x << " " << cn.getBox().getPosition().y << endl;
+		//fout << cn.getBox().getPosition().x << " " << cn.getBox().getPosition().y << endl;
 		for (int i = 0;i < axt.size();i++)
 		{
 			fout << axt[i].getSpeed() << endl;
