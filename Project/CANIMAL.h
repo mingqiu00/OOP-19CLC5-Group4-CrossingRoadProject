@@ -25,9 +25,11 @@ public:
 class CBIRD : public CANIMAL
 {
 public:
-	CBIRD() {
+	void spawn(float x, float y)
+	{
 		m_Sprite = Sprite(TextureHolder::GetTexture(
 			"graphics/bird.png"));
+		m_Sprite.setPosition(x, y);
 	}
 	void Tell();
 };
@@ -35,9 +37,11 @@ public:
 class CSNAKE : public CANIMAL
 {
 public:
-	CSNAKE() {
+	void spawn(float x, float y)
+	{
 		m_Sprite = Sprite(TextureHolder::GetTexture(
-		"graphics/snake.png"));
+			"graphics/snake.png"));
+		m_Sprite.setPosition(x, y);
 	}
  	void Tell();
 };

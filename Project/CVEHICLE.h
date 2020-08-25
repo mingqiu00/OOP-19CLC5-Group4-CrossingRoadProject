@@ -58,9 +58,11 @@ class CCAR : public CVEHICLE
 {
 	friend class TRAFFICLIGHT;
 public:
-	CCAR() {
+	void spawn(float x, float y)
+	{
 		m_Sprite = Sprite(TextureHolder::GetTexture(
-  	"graphics/car.png"));
+			"graphics/car.png"));
+		m_Sprite.setPosition(x, y);
 	}
 };
 
@@ -68,9 +70,11 @@ class CTRUCK : public CVEHICLE
 {
 	friend class TRAFFICLIGHT;
 public:
-	CTRUCK() {
+	void spawn(float x, float y)
+	{
 		m_Sprite = Sprite(TextureHolder::GetTexture(
-		"graphics/truck.png"));
+			"graphics/truck.png"));
+		m_Sprite.setPosition(x, y);
 	}
 };
 

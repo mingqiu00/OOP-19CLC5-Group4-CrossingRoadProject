@@ -31,7 +31,6 @@ public:
 	CGAME();
 	void drawGame(sf::RenderWindow &window);
 	void display(RenderWindow& w);
-	void init();
 	CPEOPLE getPeople() {	return cn; }
 	// CVEHICLE* getVehicle();
 	// CANIMAL* getAnimal();
