@@ -2,6 +2,7 @@
 #define _CVEHICLE_H
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "TextureHolder.h"
 #include <ctime>
 #include <time.h>
