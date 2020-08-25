@@ -35,3 +35,38 @@
 Debug
 Project/.vs/CrossingRoad/v16/.suo
 Project/.vs/CrossingRoad/v16/Browse.VC.db
+*.log
+*.pdb
+*.tlog
+Release
+CPEOPLE with SFML/.vs/Project1/v16/Browse.VC.db
+CPEOPLE with SFML/.vs/Project1/v16/.suo
+CPEOPLE with SFML/.vs/Project1/v16/Browse.VC.db
+CPEOPLE with SFML/Debug/Project1.pdb
+CPEOPLE with SFML/Release/Project1.exe.recipe
+CPEOPLE with SFML/Release/Project1.log
+CPEOPLE with SFML/Release/Project1.tlog/CL.write.1.tlog
+CPEOPLE with SFML/Release/Project1.tlog/link.command.1.tlog
+CPEOPLE with SFML/Release/Project1.tlog/link.read.1.tlog
+CPEOPLE with SFML/Release/Project1.tlog/link.write.1.tlog
+CPEOPLE with SFML/Release/Project1.tlog/Project1.lastbuildstate
+CPEOPLE with SFML/Release/Project1.tlog/Project1.write.1u.tlog
+CPEOPLE with SFML/Release/vc142.pdb
+Project/.vs/CrossingRoad/v16/.suo
+Project/.vs/CrossingRoad/v16/Browse.VC.db
+Project/Release/CrossingRoad.log
+Project/Release/CrossingRoad.pdb
+Project/Release/CrossingRoad.tlog/CL.command.1.tlog
+Project/Release/CrossingRoad.tlog/CL.read.1.tlog
+Project/Release/CrossingRoad.tlog/CL.write.1.tlog
+Project/Release/CrossingRoad.tlog/CrossingRoad.write.1u.tlog
+Project/Release/CrossingRoad.tlog/link.read.1.tlog
+Project/Release/vc142.pdb
+Project/Release/CrossingRoad.log
+Project/Release/CrossingRoad.pdb
+Project/Release/CrossingRoad.tlog/CL.command.1.tlog
+Project/Release/CrossingRoad.tlog/CL.read.1.tlog
+Project/Release/CrossingRoad.tlog/CL.write.1.tlog
+Project/Release/CrossingRoad.tlog/CrossingRoad.write.1u.tlog
+Project/Release/CrossingRoad.tlog/link.read.1.tlog
+Project/Release/vc142.pdb
