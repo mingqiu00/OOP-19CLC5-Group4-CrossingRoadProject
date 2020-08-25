@@ -51,7 +51,7 @@ public:
 	void setPos(float a, float b) { m_Sprite.setPosition(a, b); }
 	void Stop();
 	void Move(float elapsedTime, CTRAFFICLIGHT& light);
-	bool checkCollision(sf::FloatRect);
+	bool checkCollision(sf::FloatRect other);
 	//void CrashSound ();
 };
 

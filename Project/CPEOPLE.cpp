@@ -6,7 +6,7 @@ CPEOPLE::CPEOPLE()
 	// Set initial values
 	m_iMoves = 0;
 	m_iLivesLeft = 3;
-	m_rectBox.setSize(sf::Vector2f(50, 50));
+	m_rectBox.setSize(sf::Vector2f(40, 40));
 
 	// Load the CPEOPLE texture
 	texPlayerTexture.loadFromFile("graphics/ninja.png");
@@ -25,19 +25,19 @@ void CPEOPLE::loseLife() { m_iLivesLeft--; }
 
 void CPEOPLE::moveLeft()
 {
-	setPosition(getPosition() + sf::Vector2f(-50, 0));
+	setPosition(getPosition() + sf::Vector2f(-20, 0));
 }
 void CPEOPLE::moveRight()
 {
-	setPosition(getPosition() + sf::Vector2f(50, 0));
+	setPosition(getPosition() + sf::Vector2f(20, 0));
 }
 void CPEOPLE::moveUp()
 {
-	setPosition(getPosition() + sf::Vector2f(0, -50));
+	setPosition(getPosition() + sf::Vector2f(0, -20));
 }
 void CPEOPLE::moveDown()
 {
-	setPosition(getPosition() + sf::Vector2f(0, 50));
+	setPosition(getPosition() + sf::Vector2f(0, 20));
 }
 
 // Check if there is a key input corisponding to a movement (arrow keys)
@@ -46,7 +46,7 @@ void CPEOPLE::moveDown()
 // if all are true perform the move, increment the move counter variable, start the cooldown
 void CPEOPLE::checkMovement(sf::Event& event, sf::RenderWindow& window)
 {
-	sf::Time cooldown = sf::seconds(0.25f); // cooldown of 0.25 seconds
+	sf::Time cooldown = sf::seconds(0.1f); // cooldown of 0.25 seconds
 	if (event.type == sf::Event::KeyPressed && moveCooldownClock.getElapsedTime() > cooldown) // check for keypress and cooldown
 
 	{
