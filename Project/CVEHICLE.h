@@ -39,8 +39,8 @@ public:
 class CVEHICLE
 {
 protected:
-	//sf::Sound sound;
-	//sf::SoundBuffer buffer;
+	sf::Sound sound;
+	sf::SoundBuffer buffer;
 	int speed = 100;
 	sf::Sprite m_Sprite;
 public:
@@ -52,13 +52,17 @@ public:
 	void Stop();
 	void Move(float elapsedTime, CTRAFFICLIGHT& light);
 	bool checkCollision(sf::FloatRect other);
-	//void CrashSound ();
+	void CrashSound ();
 };
 
 class CCAR : public CVEHICLE
 {
 	friend class TRAFFICLIGHT;
 public:
+	CCAR() {
+		if (!buffer.loadFromFile("sound/crash.wav"))
+			cout << "Can't load crash sound" << endl;
+	}
 	void spawn(float x, float y)
 	{
 		m_Sprite = Sprite(TextureHolder::GetTexture(

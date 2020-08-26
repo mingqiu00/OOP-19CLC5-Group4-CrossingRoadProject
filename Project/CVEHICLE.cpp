@@ -23,13 +23,9 @@ bool CVEHICLE::checkCollision(sf::FloatRect other) {
 		return true;
 	else return false;
 }
-//void CVEHICLE::CrashSound()
-//{
-//	if (buffer.loadFromFile("sound/crash.wav"))
-//	{
-//		sound.setBuffer(buffer);
-//		sound.setVolume(100.f);
-//		sound.play();
-//		sf::sleep(sf::seconds(2.0));
-//	}
-//}
+void CVEHICLE::CrashSound()
+{
+	sound.setBuffer(buffer);
+	sound.setVolume(10.f);
+	sound.play();
+}

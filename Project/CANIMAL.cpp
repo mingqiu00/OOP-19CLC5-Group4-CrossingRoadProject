@@ -11,24 +11,16 @@ bool CANIMAL::checkCollision(sf::FloatRect other) {
 		return true;
 	else return false;
 }
-//void CSNAKE::Tell()
-//{
-//	if (buffer.loadFromFile("sound/dog.wav"))
-//	{
-//		sound.setBuffer(buffer);
-//		sound.setVolume(100.f);
-//		sound.play();
-//		sf::sleep(sf::seconds(2.0));
-//	}
-//}
-//
-//void CBIRD::Tell()
-//{
-//	if (buffer.loadFromFile("sound/cat.wav"))
-//	{
-//		sound.setBuffer(buffer);
-//		sound.setVolume(100.f);
-//		sound.play();
-//		sf::sleep(sf::seconds(2.0));
-//	}
-//}
+void CSNAKE::Tell()
+{
+	sound.setBuffer(bufferSnake);
+	sound.setVolume(50.f);
+	sound.play();
+}
+
+void CBIRD::Tell()
+{
+	sound.setBuffer(bufferBird);
+	sound.setVolume(50.f);
+	sound.play();
+}

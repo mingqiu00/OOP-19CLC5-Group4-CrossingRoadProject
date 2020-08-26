@@ -8,8 +8,9 @@
 class CANIMAL
 {
 protected:
-	//sf::Sound sound;
-	//sf::SoundBuffer buffer;
+	sf::Sound sound;
+	sf::SoundBuffer bufferBird;
+	sf::SoundBuffer bufferSnake;
 	int speed = 100;
 	sf::Sprite m_Sprite;
 public:
@@ -20,30 +21,40 @@ public:
 	void setPos(float a, float b) { m_Sprite.setPosition(a, b); }
 	void Move(float elapsedTime);
 	bool checkCollision(sf::FloatRect other);
-	//virtual void Tell() = 0;
+	virtual void Tell() = 0;
 };
 
 class CBIRD : public CANIMAL
 {
 public:
+	CBIRD()
+	{
+		if (!bufferBird.loadFromFile("sound/cat.wav"))
+			cout << "Can't load cat sound" << endl;
+	}
 	void spawn(float x, float y)
 	{
 		m_Sprite = Sprite(TextureHolder::GetTexture(
 			"graphics/bird.png"));
 		m_Sprite.setPosition(x, y);
 	}
-	//void Tell();
+	void Tell();
 };
 
 class CSNAKE : public CANIMAL
 {
 public:
+	CSNAKE()
+	{
+		if (!bufferSnake.loadFromFile("sound/dog.wav"))
+			cout << "Can't load dog sound" << endl;
+	}
 	void spawn(float x, float y)
 	{
 		m_Sprite = Sprite(TextureHolder::GetTexture(
 			"graphics/snake.png"));
 		m_Sprite.setPosition(x, y);
 	}
- 	//void Tell();
+ 	void Tell();
 };
 #endif
