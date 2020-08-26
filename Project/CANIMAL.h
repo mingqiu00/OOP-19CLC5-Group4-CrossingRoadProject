@@ -32,11 +32,10 @@ public:
 		if (!bufferBird.loadFromFile("sound/cat.wav"))
 			cout << "Can't load cat sound" << endl;
 	}
-	void spawn(float x, float y)
+	void spawn()
 	{
 		m_Sprite = Sprite(TextureHolder::GetTexture(
 			"graphics/bird.png"));
-		m_Sprite.setPosition(x, y);
 	}
 	void Tell();
 };
@@ -49,11 +48,10 @@ public:
 		if (!bufferSnake.loadFromFile("sound/dog.wav"))
 			cout << "Can't load dog sound" << endl;
 	}
-	void spawn(float x, float y)
+	void spawn()
 	{
 		m_Sprite = Sprite(TextureHolder::GetTexture(
 			"graphics/snake.png"));
-		m_Sprite.setPosition(x, y);
 	}
  	void Tell();
 };

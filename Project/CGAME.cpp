@@ -12,22 +12,31 @@ CGAME::CGAME()
 	for (int i = 0; i < 5; ++i)
 	{
 		CCAR car;
-		car.spawn(180 * i, 70);
+		car.spawn();
 		axh.push_back(car);
 		CBIRD bird;
-		bird.spawn(180 * i, 180);
+		bird.spawn();
 		ac.push_back(bird);
 		CTRUCK truck;
-		truck.spawn(180 * i, 300);
+		truck.spawn();
 		axt.push_back(truck);
 		CSNAKE snake;
-		snake.spawn(180 * i, 420);
+		snake.spawn();
 		ar.push_back(snake);
 	}
 	cd[0].setPos(770, 65);	//for car 
 	cd[1].setPos(770, 280);	//for truck
 }
-
+void CGAME::init()
+{
+	for (int i = 0;i < 5;i++)
+	{
+		axh[i].setPos(180 * i, 70);
+		ac[i].setPos(180 * i, 180);
+		axt[i].setPos(180 * i, 300);
+		ar[i].setPos(180 * i, 420);
+	}
+}
 void CGAME::changeTrafficLight()
 {
 	if (cd[0].getLight())
@@ -44,7 +53,7 @@ void CGAME::display(RenderWindow& w)
 	Level.setFont(font);
 	string num = to_string(level);
 	string lv = "Level: " + num;
-	//Level.setColor(Color::Black);
+	Level.setColor(Color::Black);
 	Level.setString(lv);
 	Level.setPosition(Vector2f(50, 550));
 	w.draw(Level);
@@ -113,24 +122,24 @@ void CGAME::drawGame(sf::RenderWindow &window)
 void CGAME::startGame()
 {
 	if (level > MAX_LEVEL) return; //cho nay chua xong, neu pha dao thi in ra man hinh thong bao
-	// if (cn.Pos().y < 50)
-	// {
-		// ++level;
-		// cn.setPos(400, 530);
-		// for (int i = 0; i < axt.size(); ++i)
-			// axt[i].setSpeed(level * 50);
-		// for (int i = 0; i < ac.size(); ++i)
-			// ac[i].setSpeed(level * 50);
-		// for (int i = 0; i < axh.size(); ++i)
-			// axh[i].setSpeed(level * 50);
-		// for (int i = 0; i < ar.size(); ++i)
-			// ar[i].setSpeed(level * 50);
-	// }
+	if (cn.Pos().y < 50)
+	{
+		++level;
+		cn.setPos(400, 530);
+		for (int i = 0; i < axt.size(); ++i)
+			axt[i].setSpeed(level * 50);
+		for (int i = 0; i < ac.size(); ++i)
+			ac[i].setSpeed(level * 50);
+		for (int i = 0; i < axh.size(); ++i)
+			axh[i].setSpeed(level * 50);
+		for (int i = 0; i < ar.size(); ++i)
+			ar[i].setSpeed(level * 50);
+	}
 }
 
 void CGAME::resetGame()
 {
-	//cn.setPos(400, 530);
+	cn.setPos(400, 530);
 	level = 1;
 	for (int i = 0; i < 5; ++i)
 	{
@@ -195,7 +204,7 @@ bool CGAME::loadGame()
 		cn.setLives(live);
 		float x, y, speed;
 		fin >> x >> y;
-		//cn.setPos(x, y);
+		cn.setPos(x, y);
 		for (int i = 0;i < axt.size();i++)
 		{
 			fin >> speed;
@@ -242,7 +251,7 @@ void CGAME::saveGame()
 	{
 		fout << level << endl;
 		fout << cn.getLivesLeft() << endl;
-		//fout << cn.getBox().getPosition().x << " " << cn.getBox().getPosition().y << endl;
+		fout << cn.getBox().getPosition().x << " " << cn.getBox().getPosition().y << endl;
 		for (int i = 0;i < axt.size();i++)
 		{
 			fout << axt[i].getSpeed() << endl;

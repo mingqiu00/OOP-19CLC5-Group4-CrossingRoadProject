@@ -29,6 +29,7 @@ private:
 	}
 public:
 	CGAME();
+	void init();
 	void drawGame(sf::RenderWindow &window);
 	void display(RenderWindow& w);
 	CPEOPLE getPeople() {	return cn; }

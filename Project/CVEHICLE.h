@@ -63,11 +63,10 @@ public:
 		if (!buffer.loadFromFile("sound/crash.wav"))
 			cout << "Can't load crash sound" << endl;
 	}
-	void spawn(float x, float y)
+	void spawn()
 	{
 		m_Sprite = Sprite(TextureHolder::GetTexture(
 			"graphics/car.png"));
-		m_Sprite.setPosition(x, y);
 	}
 };
 
@@ -75,11 +74,15 @@ class CTRUCK : public CVEHICLE
 {
 	friend class TRAFFICLIGHT;
 public:
-	void spawn(float x, float y)
+	CTRUCK()
+	{
+		if (!buffer.loadFromFile("sound/crash.wav"))
+			cout << "Can't load crash sound" << endl;
+	}
+	void spawn()
 	{
 		m_Sprite = Sprite(TextureHolder::GetTexture(
 			"graphics/truck.png"));
-		m_Sprite.setPosition(x, y);
 	}
 };
 
