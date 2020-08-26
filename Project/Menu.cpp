@@ -1,121 +1,58 @@
 #include "Menu.h"
-void gotoXY(int pX, int pY)
+Menu::Menu(float width, float height)
 {
-	COORD coord;
-	coord.X = pX;
-	coord.Y = pY;
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-}
-void txtColor(int x)
-{
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), x);
-}
-void setFontSize(int FontSize)
-{
-	CONSOLE_FONT_INFOEX info = { 0 };
-	info.cbSize = sizeof(info);
-	info.dwFontSize.Y = FontSize;
-	info.FontWeight = FW_NORMAL;
-	wcscpy_s(info.FaceName, L"Lucida Console");
-	SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), NULL, &info);
+	if (!font.loadFromFile("font/arial.ttf"))
+	{
+		cout << "Can't load font";
+	}
+
+	menu[0].setFont(font);
+	menu[0].setColor(Color::Red);
+	menu[0].setStyle(Text::Bold);
+	menu[0].setString("New Game");
+	menu[0].setPosition(Vector2f(width / 2 - 50, height / (MAX + 1) * 1));
+
+	menu[1].setFont(font);
+	menu[1].setColor(Color::Black);
+	menu[1].setStyle(Text::Bold);
+	menu[1].setString("Load Game");
+	menu[1].setPosition(Vector2f(width / 2 - 50, height / (MAX + 1) * 2));
+
+	menu[2].setFont(font);
+	menu[2].setColor(Color::Black);
+	menu[2].setStyle(Text::Bold);
+	menu[2].setString("Settings");
+	menu[2].setPosition(Vector2f(width / 2 - 50, height / (MAX + 1) * 3));
+
+	selected = 0;
 }
 
-void printrect(int x1, int y1, int x2, int y2)
+
+
+void Menu::draw(RenderWindow& window)
 {
-	char HORZ = 196;
-	char VERT = 179;
-	char TL = 218;
-	char TM = 194;
-	char TR = 191;
-	char BL = 192;
-	char BM = 193;
-	char BR = 217;
-	int i;
-	gotoXY(x1, y1);
-	cout << TL;
-	gotoXY(x2, y1);
-	cout << TR;
-	gotoXY(x1, y2);
-	cout << BL;
-	gotoXY(x2, y2);
-	cout << BR;
-	for (i = x1 + 1; i < x2; i++)
+	for (int i = 0; i < MAX; i++)
 	{
-		gotoXY(i, y1);
-		cout << HORZ;
-	}
-	for (i = x1 + 1; i < x2; i++)
-	{
-		gotoXY(i, y2);
-		cout << HORZ;
-	}
-	for (i = y1 + 1; i < y2; i++)
-	{
-		gotoXY(x1, i);
-		cout << VERT;
-	}
-	for (i = y1 + 1; i < y2; i++)
-	{
-		gotoXY(x2, i);
-		cout << VERT;
+		window.draw(menu[i]);
 	}
 }
-void printMainMenu(int selection, int n, char* menu_items[])
+
+void Menu::MoveUp()
 {
-	for (int i = 0; i <= n - 1; i++)
+	if (selected - 1 >= 0)
 	{
-		txtColor(11);
-		gotoXY(50, i + 10);
-		if (i == selection)
-			txtColor(12);
-		cout << menu_items[i];
+		menu[selected].setColor(Color::Black);
+		selected--;
+		menu[selected].setColor(Color::Red);
 	}
 }
-int selectMainMenu(int n, char* menu_items[])
+
+void Menu::MoveDown()
 {
-	int selection = 0;
-	while (1)
+	if (selected + 1 < MAX)
 	{
-		int move = _getch();
-		if (move == 80)
-		{
-			selection++;
-			if (selection == n)
-				selection = 0;
-			printMainMenu(selection, n, menu_items);
-		}
-		if (move == 72)
-		{
-			selection--;
-			if (selection == -1)
-				selection = n - 1;
-			printMainMenu(selection, n, menu_items);
-		}
-		if (move == 13)
-			return selection;
+		menu[selected].setColor(Color::Black);
+		selected++;
+		menu[selected].setColor(Color::Red);
 	}
 }
-// void Menu(CGAME cg)
-// {
-	// char* menu_items[] = { "1. New Game","2. Load Game","3. Settings" };
-	// printrect(45, 9, 65, 13);
-	// for (int i = 0;i < 3;i++)
-	// {
-		// if (i == 0) txtColor(12);
-		// else txtColor(11);
-		// gotoXY(50, i + 10);
-		// cout << menu_items[i];
-	// }
-	// int selection = selectMainMenu(3, menu_items);
-	// switch (selection)
-	// {
-	// case 1:
-		// cg.startGame();
-		// break;
-	// case 2:
-		// cg.loadGame();
-		// break;
-	// //case 3:
-		// //cg.settings();
-	// }
-// }
