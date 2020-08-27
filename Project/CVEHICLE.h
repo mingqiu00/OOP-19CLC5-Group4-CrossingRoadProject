@@ -6,7 +6,8 @@
 #include "TextureHolder.h"
 #include <ctime>
 #include <time.h>
-
+#include "Collision.h"
+#include "CPEOPLE.h"
 class CTRAFFICLIGHT
 {
 private:
@@ -39,8 +40,8 @@ public:
 class CVEHICLE
 {
 protected:
-	sf::Sound sound;
-	sf::SoundBuffer buffer;
+	/*sf::Sound sound;
+	sf::SoundBuffer buffer;*/
 	int speed = 100;
 	sf::Sprite m_Sprite;
 public:
@@ -51,8 +52,8 @@ public:
 	void setPos(float a, float b) { m_Sprite.setPosition(a, b); }
 	void Stop();
 	void Move(float elapsedTime, CTRAFFICLIGHT& light);
-	bool checkCollision(sf::FloatRect other);
-	void CrashSound ();
+	bool checkCollision(CPEOPLE cn);
+	//void CrashSound ();
 };
 
 class CCAR : public CVEHICLE
@@ -60,8 +61,8 @@ class CCAR : public CVEHICLE
 	friend class TRAFFICLIGHT;
 public:
 	CCAR() {
-		if (!buffer.loadFromFile("sound/crash.wav"))
-			cout << "Can't load crash sound" << endl;
+		/*if (!buffer.loadFromFile("sound/crash.wav"))
+			cout << "Can't load crash sound" << endl;*/
 	}
 	void spawn()
 	{
@@ -76,8 +77,8 @@ class CTRUCK : public CVEHICLE
 public:
 	CTRUCK()
 	{
-		if (!buffer.loadFromFile("sound/crash.wav"))
-			cout << "Can't load crash sound" << endl;
+		/*if (!buffer.loadFromFile("sound/crash.wav"))
+			cout << "Can't load crash sound" << endl;*/
 	}
 	void spawn()
 	{

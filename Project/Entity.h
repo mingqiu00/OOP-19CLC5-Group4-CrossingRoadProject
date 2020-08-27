@@ -8,8 +8,9 @@ class Entity
 {
 public:
 	sf::FloatRect getBounds();		// Provides a FloactRect of the boundries
-	void draw(sf::RenderWindow&);	// Draws the rectangle on the given window
+	void draw(sf::RenderWindow&);
+	sf::Sprite m_rectBox;	// Draws the rectangle on the given window
 protected:
-	sf::RectangleShape m_rectBox;	// The basic shape of the entity		
+		// The basic shape of the entity		
 };
 #endif

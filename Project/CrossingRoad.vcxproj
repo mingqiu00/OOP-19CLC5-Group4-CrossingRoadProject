@@ -88,13 +88,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>E:\SFML-2.5.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\SFML-2.5.1\include;E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project</AdditionalIncludeDirectories>
+      <AdditionalUsingDirectories>E:\An\OneDrive - VNU-HCMUS\OOP-19CLC5-Group4-CrossingRoadProject\Project</AdditionalUsingDirectories>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>E:\SFML-2.5.1\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>winmm.lib;opengl32.lib;freetype.lib;sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>winmm.lib;opengl32.lib;freetype.lib;sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;sfml-system-s.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -113,7 +115,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>E:\SFML-2.5.1\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>winmm.lib;opengl32.lib;freetype.lib;sfml-graphics-s.lib;sfml-window-s.lib;sfml-system-s.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>winmm.lib;opengl32.lib;freetype.lib;sfml-graphics-s.lib;sfml-window-s.lib;sfml-system-s.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -153,19 +155,23 @@
   <ItemGroup>
     <ClCompile Include="CANIMAL.cpp" />
     <ClCompile Include="CGAME.cpp" />
+    <ClCompile Include="Collision.cpp" />
     <ClCompile Include="CPEOPLE.cpp" />
     <ClCompile Include="CVEHICLE.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Movable.cpp" />
     <ClCompile Include="TextureHolder.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CANIMAL.h" />
     <ClInclude Include="CGAME.h" />
+    <ClInclude Include="Collision.h" />
     <ClInclude Include="CPEOPLE.h" />
     <ClInclude Include="CVEHICLE.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Movable.h" />
     <ClInclude Include="TextureHolder.h" />
   </ItemGroup>

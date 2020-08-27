@@ -6,14 +6,11 @@ CPEOPLE::CPEOPLE()
 	// Set initial values
 	m_iMoves = 0;
 	m_iLivesLeft = 3;
-	m_rectBox.setSize(sf::Vector2f(40, 40));
 
 	// Load the CPEOPLE texture
 	texPlayerTexture.loadFromFile("graphics/ninja.png");
-	m_rectBox.setTexture(&texPlayerTexture);
+	m_rectBox.setTexture(texPlayerTexture);
 
-	// Set the origin to the center of the CPEOPLE for rotation purposes
-	m_rectBox.setOrigin(m_rectBox.getSize().x / 2, m_rectBox.getSize().y / 2);
 }
 
 int CPEOPLE::getLivesLeft() { return m_iLivesLeft; }
@@ -50,33 +47,28 @@ void CPEOPLE::checkMovement(sf::Event& event, sf::RenderWindow& window)
 	if (event.type == sf::Event::KeyPressed && moveCooldownClock.getElapsedTime() > cooldown) // check for keypress and cooldown
 
 	{
-		if (event.key.code == sf::Keyboard::Left && onScreen(window, sf::Vector2f(-50, 0)))
+		if (event.key.code == sf::Keyboard::Left)
 		{
 			moveLeft();
 			moveCooldownClock.restart();
-			m_iMoves++;
 		}
-		else if (event.key.code == sf::Keyboard::Right && onScreen(window, sf::Vector2f(50, 0)))
+		else if (event.key.code == sf::Keyboard::Right)
 		{
 			moveRight();
 			moveCooldownClock.restart();
-			m_iMoves++;
 		}
-		else if (event.key.code == sf::Keyboard::Up && onScreen(window, sf::Vector2f(0, -50)))
+		else if (event.key.code == sf::Keyboard::Up)
 		{
 			moveUp();
 			moveCooldownClock.restart();
-			m_iMoves++;
 		}
-		else if (event.key.code == sf::Keyboard::Down && onScreen(window, sf::Vector2f(0, 50)))
+		else if (event.key.code == sf::Keyboard::Down)
 		{
 			moveDown();
 			moveCooldownClock.restart();
-			m_iMoves++;
 		}
 	}
 }
-
 // Updates the CPEOPLEs position
 void CPEOPLE::update(sf::Event& event, sf::RenderWindow& window)
 {

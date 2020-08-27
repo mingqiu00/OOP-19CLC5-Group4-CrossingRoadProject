@@ -18,14 +18,12 @@ void CVEHICLE::Move(float elapsedTime, CTRAFFICLIGHT& light)
 	}
 	if (!light.getLight()) this->Stop();
 }
-bool CVEHICLE::checkCollision(sf::FloatRect other) {
-	if (m_Sprite.getGlobalBounds().intersects(other))
-		return true;
-	else return false;
+bool CVEHICLE::checkCollision(CPEOPLE cn) {
+	return (Collision::PixelPerfectTest(m_Sprite, cn.m_rectBox));
 }
-void CVEHICLE::CrashSound()
-{
-	sound.setBuffer(buffer);
-	sound.setVolume(10.f);
-	sound.play();
-}
+//void CVEHICLE::CrashSound()
+//{
+//	sound.setBuffer(buffer);
+//	sound.setVolume(10.f);
+//	sound.play();
+//}

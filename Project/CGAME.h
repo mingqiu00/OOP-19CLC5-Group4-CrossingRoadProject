@@ -44,7 +44,7 @@ public:
 	void updatePosVehicle(float elapsedTime);
 	void updatePosAnimal(float elapsedTime);
 	void setPosPeople() {
-		cn.setPosition(sf::Vector2f(375, 575));
+		cn.setPosition(sf::Vector2f(375, 550));
 
 	}
 };

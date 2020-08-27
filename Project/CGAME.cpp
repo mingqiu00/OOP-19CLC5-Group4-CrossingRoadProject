@@ -163,11 +163,11 @@ void CGAME::updatePosVehicle(float elapsedTime)
 	for (int i = 0; i < 5; i++)
 	{
 		axh[i].Move(elapsedTime, cd[0]);
-		if (axh[i].checkCollision(cn.getBounds()))
-			cout << "axh Collision." << endl;
+		if (axh[i].checkCollision(cn))
+			cout << "Axh collision." << endl;
 		axt[i].Move(elapsedTime, cd[1]);
-		if (axt[i].checkCollision(cn.getBounds()))
-			cout << "axt Collision." << endl;
+		if (axt[i].checkCollision(cn))
+			cout << "Axt collision." << endl;
 	}
 }
 
@@ -176,11 +176,11 @@ void CGAME::updatePosAnimal(float elapsedTime)
 	for (int i = 0; i < 5; i++)
 	{
 		ar[i].Move(elapsedTime);
-		if (ar[i].checkCollision(cn.getBounds()))
-			cout << "ar Collision." << endl;
+		if (ar[i].checkCollision(cn))
+			cout << "Ar collision." << endl;
 		ac[i].Move(elapsedTime);
-		if (ac[i].checkCollision(cn.getBounds()))
-			cout << "ac Collision." << endl;
+		if (ac[i].checkCollision(cn))
+			cout << "Ac collision." << endl;
 	}
 }
 
