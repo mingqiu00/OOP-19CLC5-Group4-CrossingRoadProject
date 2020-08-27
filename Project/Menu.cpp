@@ -1,4 +1,6 @@
 #include "Menu.h"
+#pragma warning(disable:4996)
+#define _CRT_SECURE_NO_WARNINGS
 Menu::Menu(float width, float height)
 {
 	if (!font.loadFromFile("font/arial.ttf"))

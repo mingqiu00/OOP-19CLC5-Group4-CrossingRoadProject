@@ -1,4 +1,6 @@
-﻿#pragma once
+﻿#ifndef _MENU_H_
+#define _MENU_H
+#pragma once
 #include "SFML/Graphics.hpp"
 #include "CGAME.h"
 #define MAX 3
@@ -60,3 +62,4 @@ private:
 	Text menu[MAX];
 
 };
+#endif

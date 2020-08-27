@@ -14,6 +14,7 @@ protected:
 	int speed = 100;
 	sf::Sprite m_Sprite;
 public:
+	CANIMAL() {	}
 	void setSpeed(int _speed) { this->speed = _speed; }
 	int getSpeed() { return speed; }
 	sf::Sprite getSprite() { return m_Sprite; }
@@ -27,7 +28,7 @@ public:
 class CBIRD : public CANIMAL
 {
 public:
-	CBIRD()
+	CBIRD() 
 	{
 		if (!bufferBird.loadFromFile("sound/cat.wav"))
 			cout << "Can't load cat sound" << endl;

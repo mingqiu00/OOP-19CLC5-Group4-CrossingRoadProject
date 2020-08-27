@@ -1,5 +1,4 @@
 #include "CANIMAL.h"
-
 void CANIMAL::Move(float elapsedTime)
 {
 	m_Sprite.move(-speed * elapsedTime, 0);
