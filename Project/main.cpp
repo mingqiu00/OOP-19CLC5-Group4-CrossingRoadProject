@@ -24,7 +24,6 @@ int main()
 	Clock clock;
 	Time dt;
 	Time elapsed;
-	cg.setPosPeople();
 	while (window.isOpen())
 	{
 		elapsed += clock.getElapsedTime();

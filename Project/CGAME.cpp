@@ -53,7 +53,7 @@ void CGAME::display(RenderWindow& w)
 	Level.setFont(font);
 	string num = to_string(level);
 	string lv = "Level: " + num;
-	//Level.setColor(Color::Black);
+	Level.setColor(Color::Black);
 	Level.setString(lv);
 	Level.setPosition(Vector2f(50, 550));
 	w.draw(Level);
@@ -81,48 +81,10 @@ void CGAME::drawGame(sf::RenderWindow &window)
 	window.draw(cd[1].getSprite());
 }
 
-// CVEHICLE* CGAME::getVehicle()
-// {
-	// float max_d_car = d(axt[0].Pos(), cn.Pos()),
-			// max_d_truck = d(axh[0].Pos(), cn.Pos());
-		// CCAR* closest_car = &axh[0]; CTRUCK* closest_truck = &axt[0];
-		// for (int i = 1; i < axt.size(); ++i)
-		// {
-			// if (d(axt[i].Pos(), cn.Pos()) > max_d_truck)
-				 // closest_truck = &axt[i];
-		// }
-		// for (int i = 0; i < axh.size(); ++i)
-		// {
-			// if (d(axh[i].Pos(), cn.Pos()) > max_d_car)
-				// closest_car = &axh[i];
-		// }
-		// if (max_d_truck > max_d_car) return closest_truck;
-		// return closest_car;
-// }
-
-// CANIMAL* CGAME::getAnimal()
-// {
-	// float max_d_bird = d(ac[0].Pos(), cn.Pos()),
-			// max_d_snake= d(ar[0].Pos(), cn.Pos());
-		// CBIRD* closest_bird = &ac[0]; CSNAKE* closest_snake = &ar[0];
-		// for (int i = 1; i < ac.size(); ++i)
-		// {
-			// if (d(ac[i].Pos(), cn.Pos()) > max_d_bird)
-				 // closest_bird = &ac[i];
-		// }
-		// for (int i = 0; i < ar.size(); ++i)
-		// {
-			// if (d(ar[i].Pos(), cn.Pos()) > max_d_snake)
-				 // closest_snake = &ar[i];
-		// }
-		// if (max_d_bird > max_d_snake) return closest_bird;
-		// return closest_snake;
-// }
-
 void CGAME::startGame()
 {
 	if (level > MAX_LEVEL) return; //cho nay chua xong, neu pha dao thi in ra man hinh thong bao
-	/*if (cn.Pos().y < 50)
+	if (cn.Pos().y < 50)
 	{
 		++level;
 		cn.setPos(400, 530);
@@ -134,7 +96,7 @@ void CGAME::startGame()
 			axh[i].setSpeed(level * 50);
 		for (int i = 0; i < ar.size(); ++i)
 			ar[i].setSpeed(level * 50);
-	}*/
+	}
 }
 
 void CGAME::resetGame()
@@ -160,29 +122,84 @@ void CGAME::updatePosPeople(Event& event,RenderWindow& window)
 
 void CGAME::updatePosVehicle(float elapsedTime)
 {
+	timePassed += elapsedTime;
 	for (int i = 0; i < 5; i++)
 	{
 		axh[i].Move(elapsedTime, cd[0]);
 		if (axh[i].checkCollision(cn))
-			cout << "Axh collision." << endl;
+		{
+			if (lastHit == 0)
+			{
+				lastHit = timePassed;
+				axh[i].CrashSound();
+				cn.loseLife();
+			}
+			else if (timePassed - lastHit > 3)
+			{
+				lastHit = timePassed;
+				axh[i].CrashSound();
+				cn.loseLife();
+			}
+		}
 		axt[i].Move(elapsedTime, cd[1]);
 		if (axt[i].checkCollision(cn))
-			cout << "Axt collision." << endl;
+		{
+			if (lastHit == 0)
+			{
+				lastHit = timePassed;
+				axt[i].CrashSound();
+				cn.loseLife();
+			}
+			else if (timePassed - lastHit > 3)
+			{
+				lastHit = timePassed;
+				axt[i].CrashSound();
+				cn.loseLife();
+			}
+		}
 	}
 }
 
 void CGAME::updatePosAnimal(float elapsedTime)
 {
+	timePassed += elapsedTime;
 	for (int i = 0; i < 5; i++)
 	{
 		ar[i].Move(elapsedTime);
 		if (ar[i].checkCollision(cn))
-			cout << "Ar collision." << endl;
+		{
+			if (lastHit == 0)
+			{
+				lastHit = timePassed;
+				ar[i].Tell();
+				cn.loseLife();
+			}
+			else if (timePassed - lastHit > 3)
+			{
+				lastHit = timePassed;
+				ar[i].Tell();
+				cn.loseLife();
+			}
+		}
 		ac[i].Move(elapsedTime);
 		if (ac[i].checkCollision(cn))
-			cout << "Ac collision." << endl;
+		{
+			if (lastHit == 0)
+			{
+				lastHit = timePassed;
+				ac[i].Tell();
+				cn.loseLife();
+			}
+			else if (timePassed - lastHit > 3)
+			{
+				lastHit = timePassed;
+				ac[i].Tell();
+				cn.loseLife();
+			}
+		}
 	}
 }
+
 
 bool CGAME::loadGame()
 {
@@ -251,27 +268,18 @@ void CGAME::saveGame()
 	{
 		fout << level << endl;
 		fout << cn.getLivesLeft() << endl;
-		//fout << cn.getBox().getPosition().x << " " << cn.getBox().getPosition().y << endl;
-		for (int i = 0;i < axt.size();i++)
+		fout << cn.getPosition().x << " " << cn.getPosition().y << endl;
+		for (int i = 0;i < 5;i++)
 		{
 			fout << axt[i].getSpeed() << endl;
 			fout << axt[i].getSprite().getPosition().x << " " << axt[i].getSprite().getPosition().y << endl;
-		}
-		for (int i = 0;i < axh.size();i++)
-		{
 			fout << axh[i].getSpeed() << endl;
 			fout << axh[i].getSprite().getPosition().x << " " << axh[i].getSprite().getPosition().y << endl;
-		}
-		for (int i = 0;i < ac.size();i++)
-		{
 			fout << ac[i].getSpeed() << endl;
 			fout << ac[i].getSprite().getPosition().x << " " << ac[i].getSprite().getPosition().y << endl;
-		}
-		for (int i = 0;i < ar.size();i++)
-		{
 			fout << ar[i].getSpeed() << endl;
 			fout << ar[i].getSprite().getPosition().x << " " << ar[i].getSprite().getPosition().y;
-			if (i != ar.size() - 1)
+			if (i != 4)
 				fout << endl;
 		}
 		fout.close();

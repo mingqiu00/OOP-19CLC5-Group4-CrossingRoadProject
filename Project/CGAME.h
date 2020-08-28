@@ -24,6 +24,8 @@ private:
 	vector <CSNAKE> ar;
 	CTRAFFICLIGHT cd[2];
 	CPEOPLE cn;
+	double lastHit = 0;
+	double timePassed=0;
 	float d(sf::Vector2f a, sf::Vector2f b) {
 			return (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
 	}
@@ -33,8 +35,6 @@ public:
 	void drawGame(sf::RenderWindow &window);
 	void display(RenderWindow& w);
 	CPEOPLE getPeople() {	return cn; }
-	// CVEHICLE* getVehicle();
-	// CANIMAL* getAnimal();
 	void changeTrafficLight();
 	void resetGame();
 	void startGame();
