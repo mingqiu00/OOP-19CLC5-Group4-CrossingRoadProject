@@ -26,6 +26,10 @@ public:
 
 	// Updates the players position
 	void update(sf::Event& event, sf::RenderWindow& window);
+	
+	void setPos(float x,float y) {
+		m_rectBox.setPosition(x, y);
+	}
 
 private:
 	int m_iLivesLeft;	// The number of lives the player has left

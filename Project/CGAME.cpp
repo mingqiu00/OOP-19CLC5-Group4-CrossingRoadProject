@@ -53,7 +53,7 @@ void CGAME::display(RenderWindow& w)
 	Level.setFont(font);
 	string num = to_string(level);
 	string lv = "Level: " + num;
-	Level.setColor(Color::Black);
+	Level.setFillColor(Color::Black);
 	Level.setString(lv);
 	Level.setPosition(Vector2f(50, 550));
 	w.draw(Level);
@@ -84,7 +84,7 @@ void CGAME::drawGame(sf::RenderWindow &window)
 void CGAME::startGame()
 {
 	if (level > MAX_LEVEL) return; //cho nay chua xong, neu pha dao thi in ra man hinh thong bao
-	if (cn.Pos().y < 50)
+	if (cn.getPosition().y < 50)
 	{
 		++level;
 		cn.setPos(400, 530);
@@ -221,7 +221,7 @@ bool CGAME::loadGame()
 		cn.setLives(live);
 		float x, y, speed;
 		fin >> x >> y;
-		//cn.setPos(x, y);
+		cn.setPos(x, y);
 		for (int i = 0;i < axt.size();i++)
 		{
 			fin >> speed;

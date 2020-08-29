@@ -22,11 +22,13 @@ void CPEOPLE::loseLife() { m_iLivesLeft--; }
 
 void CPEOPLE::moveLeft()
 {
-	setPosition(getPosition() + sf::Vector2f(-20, 0));
+	if(getPosition().y<=520 && getPosition().x > 20)
+		setPosition(getPosition() + sf::Vector2f(-20, 0));
 }
 void CPEOPLE::moveRight()
 {
-	setPosition(getPosition() + sf::Vector2f(20, 0));
+	if (getPosition().y <= 520 && getPosition().x<750)
+		setPosition(getPosition() + sf::Vector2f(20, 0));
 }
 void CPEOPLE::moveUp()
 {
@@ -34,7 +36,8 @@ void CPEOPLE::moveUp()
 }
 void CPEOPLE::moveDown()
 {
-	setPosition(getPosition() + sf::Vector2f(0, 20));
+	if(getPosition().y<500)
+		setPosition(getPosition() + sf::Vector2f(0, 20));
 }
 
 // Check if there is a key input corisponding to a movement (arrow keys)
