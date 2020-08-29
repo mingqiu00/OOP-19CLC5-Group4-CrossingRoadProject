@@ -17,6 +17,7 @@ private:
 	int level = 0;
 	Font font;
 	Text Level;
+	Text message[3];
 	Sprite m_Heart;
 	vector <CTRUCK> axt;
 	vector <CCAR> axh;
@@ -36,6 +37,7 @@ public:
 	void display(RenderWindow& w);
 	CPEOPLE getPeople() {	return cn; }
 	void changeTrafficLight();
+	bool gameOver(RenderWindow& window,Event& event,int& state);
 	void resetGame();
 	void startGame();
 	bool loadGame();

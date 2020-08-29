@@ -98,9 +98,33 @@ void CGAME::startGame()
 			ar[i].setSpeed(level * 50);
 	}
 }
-
+bool CGAME::gameOver(RenderWindow &window,Event& event,int& state)
+{
+	if (cn.getLivesLeft() == 0)
+	{
+		state = 0;
+		message[0].setFont(font);
+		message[0].setFillColor(Color::Red);
+		message[0].setString("Play again?");
+		message[0].setPosition(Vector2f(370, 300));
+		message[1].setFont(font);
+		message[1].setFillColor(Color::Black);
+		message[1].setString("1. Yes");
+		message[1].setPosition(Vector2f(350, 350));
+		message[2].setFont(font);
+		message[2].setFillColor(Color::Black);
+		message[2].setString("2. No");
+		message[2].setPosition(Vector2f(450, 350));
+		for (int i = 0;i < 3;i++)
+			window.draw(message[i]);
+		window.display();
+		return true;
+	}
+	return false;
+}
 void CGAME::resetGame()
 {
+	cn.setLives(3);
 	setPosPeople();
 	level = 1;
 	for (int i = 0; i < 5; ++i)

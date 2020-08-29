@@ -33,6 +33,7 @@ int main()
 		//	Press Esc to exit
 		if (Keyboard::isKeyPressed(Keyboard::Escape))
 		{
+			//cg.saveGame();
 			window.close();
 		}
 		while (window.pollEvent(event))
@@ -41,7 +42,9 @@ int main()
 			if (state == -1)
 				menu.processMenu(window, state, event,selection);
 			if (event.type == Event::Closed)
+			{
 				window.close();
+			}
 		}
 		if (state == 0 && paused)
 		{
@@ -75,7 +78,36 @@ int main()
 			cg.updatePosVehicle(dt.asSeconds());
 			cg.updatePosAnimal(dt.asSeconds());
 		}
-		window.clear();
+		while (window.pollEvent(event))
+		{
+			if (cg.gameOver(window, event, state))
+			{
+				switch (event.type)
+				{
+				case Event::KeyReleased:
+					switch (event.key.code)
+					{
+					case Keyboard::Num1:
+						cg.resetGame();
+						window.clear();
+						paused = true;
+						state = -1;
+						break;
+
+					case Keyboard::Num2:
+						window.close();
+						break;
+					}
+					break;
+				case Event::Closed:
+					window.close();
+
+					break;
+				}
+			}
+		}
+		if(state==-1 || state==1)
+			window.clear();
 		if (state == -1)
 		{
 			window.draw(spriteMenuBackground);
@@ -86,6 +118,7 @@ int main()
 			window.draw(spriteBackground);
 			cg.drawGame(window);
 		}
-		window.display();
+		if(state==-1||state==1)
+			window.display();
 	}
 }
