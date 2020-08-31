@@ -98,7 +98,61 @@ void CGAME::startGame()
 			ar[i].setSpeed(level * 50);
 	}
 }
-bool CGAME::gameOver(RenderWindow &window,Event& event,int& state)
+void CGAME::playagain(RenderWindow& window,Event& event,bool& paused,int& state)
+{
+	switch (event.type)
+	{
+	case Event::KeyReleased:
+		switch (event.key.code)
+		{
+		case Keyboard::Num1:
+			resetGame();
+			window.clear();
+			paused = true;
+			state = -1;
+			break;
+
+		case Keyboard::Num2:
+			window.close();
+			break;
+		}
+		break;
+	case Event::Closed:
+		window.close();
+
+		break;
+	}
+}
+bool CGAME::winGame(RenderWindow& window,int& state)
+{
+	if (level > MAX_LEVEL)
+	{
+		state = 0;
+		message[0].setFont(font);
+		message[0].setFillColor(Color::Blue);
+		message[0].setStyle(Text::Bold);
+		message[0].setString("YOU WON THE GAME");
+		message[0].setPosition(Vector2f(300, 250));
+		message[1].setFont(font);
+		message[1].setFillColor(Color::Red);
+		message[1].setString("Play again?");
+		message[1].setPosition(Vector2f(370, 300));
+		message[2].setFont(font);
+		message[2].setFillColor(Color::Black);
+		message[2].setString("1. Yes");
+		message[2].setPosition(Vector2f(350, 350));
+		message[3].setFont(font);
+		message[3].setFillColor(Color::Black);
+		message[3].setString("2. No");
+		message[3].setPosition(Vector2f(450, 350));
+		for (int i = 0;i < 4;i++)
+			window.draw(message[i]);
+		window.display();
+		return true;
+	}
+	return false;
+}
+bool CGAME::gameOver(RenderWindow &window,int& state)
 {
 	if (cn.getLivesLeft() == 0)
 	{

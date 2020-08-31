@@ -33,14 +33,16 @@ int main()
 		//	Press Esc to exit
 		if (Keyboard::isKeyPressed(Keyboard::Escape))
 		{
-			//cg.saveGame();
+			cg.saveGame();
 			window.close();
 		}
 		while (window.pollEvent(event))
 		{
 			// Process menu
 			if (state == -1)
-				menu.processMenu(window, state, event,selection);
+			{
+				menu.processMenu(window, state, event, selection);
+			}
 			if (event.type == Event::Closed)
 			{
 				window.close();
@@ -80,30 +82,15 @@ int main()
 		}
 		while (window.pollEvent(event))
 		{
-			if (cg.gameOver(window, event, state))
+			if (cg.gameOver(window, state))
 			{
-				switch (event.type)
-				{
-				case Event::KeyReleased:
-					switch (event.key.code)
-					{
-					case Keyboard::Num1:
-						cg.resetGame();
-						window.clear();
-						paused = true;
-						state = -1;
-						break;
-
-					case Keyboard::Num2:
-						window.close();
-						break;
-					}
-					break;
-				case Event::Closed:
-					window.close();
-
-					break;
-				}
+				cg.playagain(window, event, paused, state);
+				selection = -1;
+			}
+			if (cg.winGame(window, state))
+			{
+				cg.playagain(window, event, paused, state);
+				selection = -1;
 			}
 		}
 		if(state==-1 || state==1)
