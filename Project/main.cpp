@@ -6,7 +6,7 @@ int main()
 {
 	TextureHolder holder;
 	CGAME cg;
-	RenderWindow window(VideoMode(800, 600), "SFML WORK!");
+	RenderWindow window(VideoMode(800, 600), "CROSS THE ROAD");
 	Menu menu(window.getSize().x, window.getSize().y);
 	Texture textureBackground;
 	Texture menuBackground;
@@ -30,12 +30,6 @@ int main()
 		dt = clock.getElapsedTime();
 		clock.restart();
 		Event event;
-		//	Press Esc to exit
-		if (Keyboard::isKeyPressed(Keyboard::Escape))
-		{
-			cg.saveGame();
-			window.close();
-		}
 		while (window.pollEvent(event))
 		{
 			// Process menu
@@ -64,10 +58,10 @@ int main()
 		}
 		// Press Space to continue the game
 		if (Keyboard::isKeyPressed(Keyboard::Space))
+		{
+			state = 1;
 			paused = false;
-		// Press P to pause the game
-		if (Keyboard::isKeyPressed(Keyboard::P))
-			paused = true;
+		}
 		if (!paused && state == 1)
 		{
 			if (elapsed.asSeconds() >= 4)
@@ -82,6 +76,15 @@ int main()
 		}
 		while (window.pollEvent(event))
 		{
+			if (cg.save(window, state))
+			{
+				cg.chooseSave(window, event, paused, state);
+			}
+			if(cg.pause(window,state))
+			{
+				cg.playagain(window, event, paused, state);
+				selection = -1;
+			}
 			if (cg.gameOver(window, state))
 			{
 				cg.playagain(window, event, paused, state);

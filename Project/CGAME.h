@@ -43,7 +43,10 @@ public:
 	void resetGame();
 	void startGame();
 	bool loadGame();
-	void saveGame();
+	void chooseSave(RenderWindow& window, Event& event, bool& paused, int& state);
+	bool save(RenderWindow& window, int& state);
+	void saveGame(RenderWindow& window);
+	bool pause(RenderWindow& window, int& state);
 	void updatePosPeople(Event& event,RenderWindow& window);
 	void updatePosVehicle(float elapsedTime);
 	void updatePosAnimal(float elapsedTime);

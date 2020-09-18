@@ -125,9 +125,9 @@ void CGAME::playagain(RenderWindow& window,Event& event,bool& paused,int& state)
 }
 bool CGAME::winGame(RenderWindow& window,int& state)
 {
-	if (level > MAX_LEVEL)
+	if (state==3 ||level > MAX_LEVEL)
 	{
-		state = 0;
+		state = 3;
 		message[0].setFont(font);
 		message[0].setFillColor(Color::Blue);
 		message[0].setStyle(Text::Bold);
@@ -159,17 +159,22 @@ bool CGAME::gameOver(RenderWindow &window,int& state)
 		state = 0;
 		message[0].setFont(font);
 		message[0].setFillColor(Color::Red);
-		message[0].setString("Play again?");
-		message[0].setPosition(Vector2f(370, 300));
+		message[0].setStyle(Text::Bold);
+		message[0].setString("GAME OVER");
+		message[0].setPosition(Vector2f(330, 200));
 		message[1].setFont(font);
-		message[1].setFillColor(Color::Black);
-		message[1].setString("1. Yes");
-		message[1].setPosition(Vector2f(350, 350));
+		message[1].setFillColor(Color::Red);
+		message[1].setString("Play again?");
+		message[1].setPosition(Vector2f(345, 300));
 		message[2].setFont(font);
 		message[2].setFillColor(Color::Black);
-		message[2].setString("2. No");
-		message[2].setPosition(Vector2f(450, 350));
-		for (int i = 0;i < 3;i++)
+		message[2].setString("1. Yes");
+		message[2].setPosition(Vector2f(325, 350));
+		message[3].setFont(font);
+		message[3].setFillColor(Color::Black);
+		message[3].setString("2. No");
+		message[3].setPosition(Vector2f(425, 350));
+		for (int i = 0;i < 4;i++)
 			window.draw(message[i]);
 		window.display();
 		return true;
@@ -362,4 +367,78 @@ void CGAME::saveGame()
 		}
 		fout.close();
 	}
+}
+bool CGAME::save(RenderWindow& window, int& state)
+{
+	if (state == 2 || Keyboard::isKeyPressed(Keyboard::Escape))
+	{
+		state = 2;
+		message[0].setFont(font);
+		message[0].setFillColor(Color::Blue);
+		message[0].setStyle(Text::Bold);
+		message[0].setString("Save game?");
+		message[0].setPosition(Vector2f(350, 250));
+		message[1].setFont(font);
+		message[1].setFillColor(Color::Black);
+		message[1].setString("1. Yes");
+		message[1].setPosition(Vector2f(300, 300));
+		message[2].setFont(font);
+		message[2].setFillColor(Color::Black);
+		message[2].setString("2. No");
+		message[2].setPosition(Vector2f(470, 300));
+		for (int i = 0;i < 3;i++)
+			window.draw(message[i]);
+		window.display();
+		return true;
+	}
+	return false;
+}
+void CGAME::chooseSave(RenderWindow& window, Event& event, bool& paused, int& state)
+{
+	switch (event.type)
+	{
+	case Event::KeyReleased:
+		switch (event.key.code)
+		{
+		case Keyboard::Num1:
+			saveGame(window);
+			paused = true;
+			state = -1;
+			break;
+
+		case Keyboard::Num2:
+			window.close();
+			break;
+		}
+		break;
+	case Event::Closed:
+		window.close();
+
+		break;
+	}
+}
+bool CGAME::pause(RenderWindow& window,int& state)
+{
+	if (state==0 || Keyboard::isKeyPressed(Keyboard::P))
+	{
+		state = 0;
+		message[0].setFont(font);
+		message[0].setFillColor(Color::Blue);
+		message[0].setStyle(Text::Bold);
+		message[0].setString("PAUSED");
+		message[0].setPosition(Vector2f(350, 250));
+		message[1].setFont(font);
+		message[1].setFillColor(Color::Black);
+		message[1].setString("1. Reset");
+		message[1].setPosition(Vector2f(280, 300));
+		message[2].setFont(font);
+		message[2].setFillColor(Color::Black);
+		message[2].setString("2. Exit");
+		message[2].setPosition(Vector2f(450, 300));
+		for (int i = 0;i < 3;i++)
+			window.draw(message[i]);
+		window.display();
+		return true;
+	}
+	return false;
 }
